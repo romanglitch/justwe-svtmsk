@@ -1,0 +1,13 @@
+/*
+ * import included styles
+ */
+@import "inc/fonts.css";
+@import "inc/variables.css";
+@import "inc/defaults.css";
+
+/*
+ * main styles
+ */
+.modals {
+    display: none;
+}

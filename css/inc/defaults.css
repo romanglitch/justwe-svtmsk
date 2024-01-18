@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow: auto;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: var(--primaryFont);
+    font-size: var(--body-font-size);
+    background: var(--body-bg-color);
+    color: var(--body-text-color);
+    position: relative;
+    -webkit-text-size-adjust: none;
+    min-height: 100%;
+}
+
+.container,
+.container-fluid {
+    width: 100%;
+    padding-right: var(--container-padding);
+    padding-left: var(--container-padding);
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
+}
+
+.container {
+    max-width: var(--container-width);
+}
+
+input, button, textarea {
+    font-family: var(--primaryFont);
+}
+
+.mobile-device-helper {
+    display: none;
+}

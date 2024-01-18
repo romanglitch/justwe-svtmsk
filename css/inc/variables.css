@@ -1,0 +1,17 @@
+:root {
+    /* Container */
+    --container-width: 1465px;
+    --container-padding: 10px;
+
+    /* Fonts */
+    --primaryFont: 'DIN Pro', sans-serif;
+    --secondaryFont: 'DIN Pro Cond', sans-serif;
+
+    /* Font sizes */
+    --body-font-size: 16px;
+
+    /* Colors */
+    --body-bg-color: #fff;
+    --body-text-color: #3B505B;
+    --placeholder-color: #3B505B;
+}

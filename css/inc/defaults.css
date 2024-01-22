@@ -9,7 +9,7 @@
 html {
     scroll-behavior: smooth;
     overflow: auto;
-    font-size: 1vw;
+    font-size: var(--html-font-size);
     line-height: 1.4;
 }
 

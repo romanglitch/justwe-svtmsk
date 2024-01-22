@@ -7,7 +7,16 @@
     select,
     textarea,
     input {
-        font-size: var(--body-font-size);
+        font-size: var(--main-font-size);
+    }
+
+    /* Hide document for dev */
+    html {
+        opacity: 0;
+        overflow: hidden;
+        display: none;
+        visibility: hidden;
+        pointer-events: none;
     }
 }
 

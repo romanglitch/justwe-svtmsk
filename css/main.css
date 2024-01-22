@@ -1,9 +1,29 @@
 /*
  * import included styles
  */
-@import "inc/fonts.css"; @import "inc/variables.css"; @import "inc/defaults.css"; /*
+@import "inc/fonts.css";
+@import "inc/variables.css";
+@import "inc/defaults.css";
+
+/*
  * main styles
  */
+::-webkit-scrollbar {
+    width: var(--sb-width);
+}
+
+::-webkit-scrollbar-track {
+    background: #f8f8f8;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c2c2c2;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a5a5a5;
+}
+
 html:not(.--loaded) body {
     overflow: hidden;
     padding-right: var(--sb-width);
@@ -42,7 +62,7 @@ a {
     font-size: 0.875rem;
     font-weight: bold;
     text-transform: uppercase;
-    height: 2.6vw;
+    height: 2.34vw;
     padding: 0 1.04vw;
     border: 2px solid transparent;
     transition: all 200ms ease-in-out;
@@ -81,7 +101,7 @@ a {
     position: fixed;
     left: 0;
     top: 0;
-    padding: 3.47vw;
+    padding: 2.60vw 2.60vw;
     z-index: 1000;
 }
 

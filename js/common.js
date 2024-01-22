@@ -43,34 +43,36 @@ $(function() {
         }
     }
 
+    /* Helpers */
+    const helpers = {
+        isInViewport: (el) => {
+            const rect = el.getBoundingClientRect()
+
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+
+            )
+        }
+    }
+
     /* Components */
     GL_APP.components = {
         // App components
-        glHTMLStyles: () => {
+        glPreloader: () => {
             GL_APP.elements.$html.css({
                 '--preloader-anim-duration': GL_APP.variables.preloader.animationDuration,
                 '--preloader-delay': GL_APP.variables.preloader.delay
             })
-        },
-        glPreloader: () => {
+
             GL_APP.elements.$html.addClass('--ready')
             setTimeout(() => {
                 $('.preloader').fadeOut(GL_APP.variables.preloader.animationDuration, () => {
                     GL_APP.elements.$html.addClass('--loaded')
                 })
             }, GL_APP.variables.preloader.delay)
-        },
-        glDisableScrollOnAside: () => {
-            let $aside = $('.app-aside')
-
-            let preventScroll = (e) => {
-                e.preventDefault();
-                e.stopPropagation();
-
-                return false;
-            }
-
-            $aside.on('wheel', preventScroll)
         },
         glGetScrollbarWidth: () => {
             const outer = document.createElement('div');
@@ -95,12 +97,13 @@ $(function() {
         glElevatorAnimations: () => {
             const $elevatorElement = $('.elevator')
 
-            let stickyTop = $elevatorElement.offset().top + Number($elevatorElement.css('--animation-start-px'))
+            let stickyTop = $elevatorElement.offset().top
+            let stickyCalc = stickyTop + Number($elevatorElement.css('--animation-start-px'))
 
-            $(window).on('scroll', function () {
+            $(window).on('scroll', function (e) {
                 let windowTop = $(window).scrollTop();
 
-                if (windowTop >= stickyTop) {
+                if (windowTop >= stickyCalc) {
                     $elevatorElement.addClass('--animation')
                 } else {
                     $elevatorElement.removeClass('--animation')
@@ -338,6 +341,7 @@ $(function() {
             GL_APP.elements.maskInputs.$phone.inputmask({
                 mask: '+7 (*99) 999-99-99',
                 definitions: {
+                    // Number not start from 4,9
                     '*': {
                         validator: "[4,9]",
                     }
@@ -362,14 +366,10 @@ $(function() {
                     return data.text;
                 }
             })
-
-            GL_APP.elements.$select.on('select2:select', function (e) {
-                $(e.currentTarget).removeClass('--error')
-            });
         },
         glInitSwipers: () => {
             GL_APP.instances.swiper.heroCarousel = new Swiper(GL_APP.elements.swiper.heroCarousel , {
-                direction: "vertical",
+                direction: 'vertical',
                 slidesPerView: 1,
                 spaceBetween: 0,
                 speed: 1000,
@@ -382,16 +382,41 @@ $(function() {
                     sticky: true,
                 },
                 pagination: {
-                    el: ".swiper-pagination",
+                    el: '.swiper-pagination',
                     clickable: true,
                 },
                 on: {
+                    init: function (swiper) {
+                        const $asideElement = $('.app-aside')
+
+                        const preventScroll = (e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+
+                            return false;
+                        }
+
+                        const toggleScrollOnAside = () => {
+                            if (helpers.isInViewport(swiper.el)) {
+                                $asideElement.on('wheel', preventScroll)
+                            } else {
+                                $asideElement.off('wheel', preventScroll)
+                            }
+
+                            return false
+                        }
+
+                        $(window).on('load scroll', toggleScrollOnAside)
+                    },
                     progress: function (swiper, progress) {
                         GL_APP.elements.$html.css({
-                            '--hero-carousel-progress': progress * 100,
+                            '--hero-carousel-progress': Math.round(progress * 100),
                             '--hero-carousel-speed': `${swiper.passedParams.speed}ms`
                         })
                     },
+                    fromEdge: function (swiper) {
+                        !helpers.isInViewport(swiper.el) ? $('html,body').animate({ scrollTop: 0 }, 300) : false
+                    }
                 },
             })
         },
@@ -407,14 +432,8 @@ $(function() {
         }
     }
 
-    /* Init app component [Export data to CSS] */
-    GL_APP.components.glHTMLStyles()
-
     /* Init app component [Preloader] */
     GL_APP.components.glPreloader()
-
-    /* Init app component [Disable scroll on Aside element] */
-    GL_APP.components.glDisableScrollOnAside()
 
     /* Init app component [Get scrollbar width] */
     GL_APP.components.glGetScrollbarWidth()

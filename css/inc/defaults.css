@@ -9,6 +9,8 @@
 html {
     scroll-behavior: smooth;
     overflow: auto;
+    font-size: 1vw;
+    line-height: 1.4;
 }
 
 html, body {
@@ -18,32 +20,21 @@ html, body {
 
 body {
     font-family: var(--primaryFont);
-    font-size: var(--body-font-size);
+    font-size: var(--main-font-size);
     background: var(--body-bg-color);
     color: var(--body-text-color);
     position: relative;
-    -webkit-text-size-adjust: none;
     min-height: 100%;
-}
-
-.container,
-.container-fluid {
-    width: 100%;
-    padding-right: var(--container-padding);
-    padding-left: var(--container-padding);
-    margin-right: auto;
-    margin-left: auto;
-    position: relative;
-}
-
-.container {
-    max-width: var(--container-width);
+    -webkit-text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 input, button, textarea {
     font-family: var(--primaryFont);
 }
 
-.mobile-device-helper {
+.modals, .mobile-device-helper {
     display: none;
 }

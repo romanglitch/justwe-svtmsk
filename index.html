@@ -22,12 +22,109 @@
 	</head>
 	<body>
 		<div class="app">
-			<div class="app-sidebar">
-				sidebar...
-			</div>
-			<div class="app-content">
-				content...
-			</div>
+			<header class="app-mobile-header" style="display: none">
+				mobile header
+			</header>
+			<aside class="app-aside" data-aside-transparent>
+				aside
+			</aside>
+			<main class="app-main" style="height: 5000px">
+				<section class="app-section section-hero">
+					<div class="section-hero__assets">
+						<div class="section-hero__assets-layer hero-asset-1 lazy" data-bg="img/ref__hero-layer-1.jpg"></div>
+						<div class="section-hero__assets-layer hero-asset-2 lazy" data-bg="img/ref__hero-layer-2.png"></div>
+					</div>
+					<div class="swiper hero-carousel">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide hero-carousel__slide">
+								<div class="hero-carousel__block">
+									<div class="hero-carousel__block-title">
+										СОВРЕМЕННЫЕ
+										<br>ВЕРТИКАЛЬНЫЕ
+										<br>ТЕХНОЛОГИИ
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide hero-carousel__slide">
+								<div class="hero-carousel__block">
+									<div class="hero-carousel__block-title">
+										ЛИФТЫ И ПОДЪЕМНИКИ
+									</div>
+									<div class="hero-carousel__block-actions">
+										<a href="#" class="btn btn_primary btn_arrow">
+											<span>Смотреть каталог</span>
+										</a>
+									</div>
+								</div>
+								<div class="hero-carousel__block">
+									<div class="hero-carousel__block-title">
+										ЭСКАЛАТОРЫ И
+										<br>ТРАВОЛАТОРЫ
+									</div>
+									<div class="hero-carousel__block-actions">
+										<a href="#" class="btn btn_primary btn_arrow">
+											<span>Смотреть каталог</span>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="swiper-slide hero-carousel__slide">
+								<div class="hero-carousel__block">
+									<div class="hero-carousel__block-title">
+										ЗАПАСНЫЕ ЧАСТИ
+									</div>
+									<div class="hero-carousel__block-actions">
+										<a href="#" class="btn btn_primary btn_arrow">
+											<span>Смотреть каталог</span>
+										</a>
+									</div>
+								</div>
+								<div class="hero-carousel__block">
+									<div class="hero-carousel__block-title">
+										МОНТАЖНЫЕ РАБОТЫ
+									</div>
+									<div class="hero-carousel__block-actions">
+										<a href="#" class="btn btn_primary btn_arrow">
+											<span>Смотреть каталог</span>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="swiper-pagination hero-carousel__pagination"></div>
+					</div>
+				</section>
+
+				<section class="app-section section-catalog --aside-offset" style="height: 2000px">
+					catalog
+				</section>
+
+				<section class="app-section section-elevator">
+					<div class="elevator">
+						<div class="elevator__bg">
+							<div class="elevator__content">
+								НАШИ
+								<br>КЛИЕНТЫ
+							</div>
+						</div>
+						<div class="elevator__border"></div>
+						<div class="elevator__doors">
+							<div class="elevator__doors-item">
+								<div class="elevator__doors-content">
+									НАШИ
+									<br>ПОСТАВЩИКИ
+								</div>
+							</div>
+							<div class="elevator__doors-item">
+								<div class="elevator__doors-content">
+									НАШИ
+									<br>ПОСТАВЩИКИ
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
 		</div>
 
 		<!-- popups/modals -->
@@ -41,6 +138,9 @@
 				Пожалуйста, переверните устройство. <br>Это необходимо для корректного отображения сайта.
 			</div>
 		</div>
+
+		<!-- preloader -->
+		<div class="preloader"></div>
 
 		<!-- vendor plugins -->
 		<script src="js/vendor/lazyload.min.js"></script>

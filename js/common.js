@@ -6,6 +6,10 @@ $(function() {
 
     /* Variables */
     GL_APP.variables = {
+        preloader: {
+            animationDuration: 666,
+            delay: 330,
+        },
         fancyBox: {
             modalsOptions: {
                 defaultType: 'inline',
@@ -26,6 +30,7 @@ $(function() {
     GL_APP.elements = {
         $html: $('html'),
         $body: $('body'),
+        $app: $('.app'),
         $input: $('.main-form-input'),
         $select: $('.main-form-select'),
         $fancyboxModals: $('.js-modals'),
@@ -34,13 +39,76 @@ $(function() {
             $phone: $('.js-phone-mask')
         },
         swiper: {
-            mainCarousel: '.carousel'
+            heroCarousel: '.hero-carousel'
         }
     }
 
     /* Components */
     GL_APP.components = {
         // App components
+        glHTMLStyles: () => {
+            GL_APP.elements.$html.css({
+                '--preloader-anim-duration': GL_APP.variables.preloader.animationDuration,
+                '--preloader-delay': GL_APP.variables.preloader.delay
+            })
+        },
+        glPreloader: () => {
+            GL_APP.elements.$html.addClass('--ready')
+            setTimeout(() => {
+                $('.preloader').fadeOut(GL_APP.variables.preloader.animationDuration, () => {
+                    GL_APP.elements.$html.addClass('--loaded')
+                })
+            }, GL_APP.variables.preloader.delay)
+        },
+        glDisableScrollOnAside: () => {
+            let $aside = $('.app-aside')
+
+            let preventScroll = (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                return false;
+            }
+
+            $aside.on('wheel', preventScroll)
+        },
+        glGetScrollbarWidth: () => {
+            const outer = document.createElement('div');
+            outer.style.visibility = 'hidden';
+            outer.style.overflow = 'scroll';
+            outer.style.msOverflowStyle = 'scrollbar';
+            document.body.appendChild(outer);
+
+            const inner = document.createElement('div');
+            outer.appendChild(inner);
+
+            const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
+
+            outer.parentNode.removeChild(outer);
+
+            GL_APP.elements.$html.css({
+                '--sb-width': `${scrollbarWidth}px`,
+            })
+
+            return scrollbarWidth
+        },
+        glElevatorAnimations: () => {
+            const $elevatorElement = $('.elevator')
+
+            let stickyTop = $elevatorElement.offset().top + Number($elevatorElement.css('--animation-start-px'))
+
+            $(window).on('scroll', function () {
+                let windowTop = $(window).scrollTop();
+
+                if (windowTop >= stickyTop) {
+                    $elevatorElement.addClass('--animation')
+                } else {
+                    $elevatorElement.removeClass('--animation')
+                }
+            })
+        },
+
+        // Default components
         glAccordion: (selector, options) => {
             let defaults = {
                 openOnlyOne: true,
@@ -300,18 +368,31 @@ $(function() {
             });
         },
         glInitSwipers: () => {
-            GL_APP.instances.swiper.mainCarousel = new Swiper(GL_APP.elements.swiper.mainCarousel , {
-                slidesPerView: 4,
-                spaceBetween: 20,
-                autoHeight: true,
+            GL_APP.instances.swiper.heroCarousel = new Swiper(GL_APP.elements.swiper.heroCarousel , {
+                direction: "vertical",
+                slidesPerView: 1,
+                spaceBetween: 0,
+                speed: 1000,
+                touchReleaseOnEdges: true,
+                watchSlidesProgress: true,
+                mousewheel: {
+                    releaseOnEdges: true,
+                },
+                freeMode: {
+                    sticky: true,
+                },
                 pagination: {
-                    el: '.swiper-pagination',
+                    el: ".swiper-pagination",
                     clickable: true,
                 },
-                navigation: {
-                    nextEl: '.swiper-button-next',
-                    prevEl: '.swiper-button-prev'
-                }
+                on: {
+                    progress: function (swiper, progress) {
+                        GL_APP.elements.$html.css({
+                            '--hero-carousel-progress': progress * 100,
+                            '--hero-carousel-speed': `${swiper.passedParams.speed}ms`
+                        })
+                    },
+                },
             })
         },
         glInitFancyBox: () => {
@@ -326,8 +407,20 @@ $(function() {
         }
     }
 
-    /* Init other components... */
-    // ...
+    /* Init app component [Export data to CSS] */
+    GL_APP.components.glHTMLStyles()
+
+    /* Init app component [Preloader] */
+    GL_APP.components.glPreloader()
+
+    /* Init app component [Disable scroll on Aside element] */
+    GL_APP.components.glDisableScrollOnAside()
+
+    /* Init app component [Get scrollbar width] */
+    GL_APP.components.glGetScrollbarWidth()
+
+    /* Init app component [Elevator section animations] */
+    GL_APP.components.glElevatorAnimations()
 
     /* Init component [LazyLoad] */
     GL_APP.components.glInitLazyLoad()

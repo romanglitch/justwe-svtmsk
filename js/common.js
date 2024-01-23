@@ -56,8 +56,49 @@ $(function() {
                 rect.right <= (window.innerWidth || document.documentElement.clientWidth)
 
             )
+        },
+        scrollToggle: () => {
+            let keys = {37: 1, 38: 1, 39: 1, 40: 1};
+
+            function preventDefault(e) {
+                e.preventDefault();
+            }
+
+            function preventDefaultForScrollKeys(e) {
+                if (keys[e.keyCode]) {
+                    preventDefault(e);
+                    return false;
+                }
+            }
+
+            let supportsPassive = false;
+            try {
+                window.addEventListener("test", null, Object.defineProperty({}, 'passive', {
+                    get: function () { supportsPassive = true; }
+                }));
+            } catch(e) {}
+
+            let wheelOpt = supportsPassive ? { passive: false } : false;
+            let wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
+
+            window.disableScroll = function () {
+                window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
+                window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
+                window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
+                window.addEventListener('keydown', preventDefaultForScrollKeys, false);
+            }
+
+            window.enableScroll = function () {
+                window.removeEventListener('DOMMouseScroll', preventDefault, false);
+                window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
+                window.removeEventListener('touchmove', preventDefault, wheelOpt);
+                window.removeEventListener('keydown', preventDefaultForScrollKeys, false);
+            }
         }
     }
+
+    /* Helpers init */
+    helpers.scrollToggle()
 
     /* Components */
     GL_APP.components = {
@@ -160,15 +201,17 @@ $(function() {
                 mousewheel: {
                     releaseOnEdges: true,
                 },
-                freeMode: {
-                    sticky: true,
-                },
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true,
                 },
                 on: {
                     progress: function (swiper, progress) {
+                        disableScroll()
+                        setTimeout(function () {
+                            enableScroll()
+                        }, swiper.passedParams.speed)
+
                         GL_APP.elements.$html.css({
                             '--hero-carousel-progress': Math.round(progress * 100),
                             '--hero-carousel-speed': `${swiper.passedParams.speed}ms`

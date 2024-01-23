@@ -116,7 +116,6 @@ a {
     position: fixed;
     left: 0;
     top: 0;
-    padding: 2.20vw 2.60vw;
     z-index: 1000;
 }
 
@@ -130,7 +129,24 @@ a {
 }
 
 .app-aside[data-aside-transparent] {
+    background: none;
+}
+
+.app-aside[data-aside-transparent] .app-aside__bg {
+    position: relative;
+    z-index: 1;
+}
+
+.app-aside[data-aside-transparent] .app-aside__bg:before {
+    content: "";
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: var(--aside-width);
+    height: 100vh;
+    z-index: -1;
     background: rgba(59, 80, 91, 0.40);
+    -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
 }
 
@@ -159,17 +175,13 @@ a {
 }
 
 .hero-asset-1 {
-    --division: 900;
-    --offset: 50%;
-    background-position: center bottom calc(100% * var(--hero-carousel-progress) / var(--division) + var(--offset));
-    transition: all var(--hero-carousel-speed) ease-in-out;
+    background-position: center bottom calc(100% * var(--hero-carousel-progress) / 100);
+    transition: all 1.5s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .hero-asset-2 {
-    --division: 100;
-    --offset: 0px;
-    background-position: center top calc(100% * var(--hero-carousel-progress) / var(--division) + var(--offset));
-    transition: all var(--hero-carousel-speed) ease-in-out;
+    background-position: center top calc(100% * var(--hero-carousel-progress) / 100);
+    transition: all 1.5s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
 .section-hero__assets:after {
@@ -212,10 +224,11 @@ a {
 .hero-carousel__block {
     display: grid;
     grid-gap: 1.82vw;
+    max-width: 38.02vw;
 }
 
 .swiper-pagination.hero-carousel__pagination {
-    right: 12.50vw;
+    right: 37.5vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -245,6 +258,10 @@ a {
     background: #fff;
 }
 
+.elevator-scene {
+    height: 100vw
+}
+
 .elevator {
     --animation-start-px: 230;
     position: relative;
@@ -252,6 +269,7 @@ a {
     background: darkolivegreen;
     z-index: 1;
     overflow: hidden;
+    transition: all var(--hero-carousel-speed) ease;
 }
 
 .elevator__bg {
@@ -306,6 +324,47 @@ a {
     transform: scaleX(-1);
 }
 
+.elevator__doors-content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.elevator__title {
+    font-family: var(--secondaryFont);
+    font-weight: 300;
+    font-size: 4.375rem;
+    line-height: 4.75rem;
+    color: #fff;
+}
+
+.elevator__content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 100%;
+}
+
+.elevator__content {
+    height: 100%;
+}
+
+.elevator__content-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.elevator__doors-item .elevator__image {
+    width: 18.33vw;
+    display: block;
+}
+
+.elevator__content-col .elevator__image {
+    display: block;
+    width: 11.67vw;
+}
+
 .elevator.--animation .elevator__doors-item:first-child {
     transform: translateX(-98%);
 }
@@ -325,6 +384,15 @@ a {
     z-index: -1;
 }
 
+.elevator.--sticky-bg {
+    position: sticky;
+    top: 0;
+}
+
+.elevator.--sticky-bg.--animation {
+    top: -10vw;
+}
+
 .app-aside__logo {
     display: flex;
     align-items: center;
@@ -338,6 +406,7 @@ a {
 .app-aside__inner {
     display: grid;
     grid-gap: 2.20vw;
+    padding: 2.2vw 2.6vw;
 }
 
 .app-aside__nav {
@@ -551,47 +620,6 @@ a {
 
 .portfolio {
     display: grid;
-}
-
-.elevator__doors-content {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.elevator__title {
-    font-family: var(--secondaryFont);
-    font-weight: 300;
-    font-size: 4.375rem;
-    line-height: 4.75rem;
-    color: #fff;
-}
-
-.elevator__content-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    height: 100%;
-}
-
-.elevator__content {
-    height: 100%;
-}
-
-.elevator__content-col {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.elevator__doors-item .elevator__image {
-    width: 18.33vw;
-    display: block;
-}
-
-.elevator__content-col .elevator__image {
-    display: block;
-    width: 11.67vw;
 }
 
 .spv__head {

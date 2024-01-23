@@ -168,29 +168,6 @@ $(function() {
                     clickable: true,
                 },
                 on: {
-                    init: function (swiper) {
-                        // !TODO: refactoring block scroll functions
-                        // const $asideElement = $('.app-aside')
-                        //
-                        // const preventScroll = (e) => {
-                        //     e.preventDefault();
-                        //     e.stopPropagation();
-                        //
-                        //     return false;
-                        // }
-                        //
-                        // const toggleScrollOnAside = () => {
-                        //     if (helpers.isInViewport(swiper.el)) {
-                        //         $asideElement.on('wheel', preventScroll)
-                        //     } else {
-                        //         $asideElement.off('wheel', preventScroll)
-                        //     }
-                        //
-                        //     return false
-                        // }
-                        //
-                        // $(window).on('load scroll', toggleScrollOnAside)
-                    },
                     progress: function (swiper, progress) {
                         GL_APP.elements.$html.css({
                             '--hero-carousel-progress': Math.round(progress * 100),

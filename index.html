@@ -22,10 +22,13 @@
 	</head>
 	<body>
 		<div class="app">
-			<header class="app-mobile-header" style="display: none">
-				mobile header
+			<header class="app-mobile-header">
+				<a href="/" class="app-mobile-header__logo">
+					<img class="app-mobile-header__logo-img" alt="СВТ - СОВРЕМЕННЫЕ ВЕРТИКАЛЬНЫЕ ТЕХНОЛОГИИ" src="img/logo.svg">
+				</a>
+				<button class="app-mobile-header__menu-btn js-modals" data-fancybox="#app-aside"></button>
 			</header>
-			<aside class="app-aside" data-aside-transparent>
+			<aside class="app-aside" id="app-aside" data-aside-transparent>
 				<div class="app-aside__inner">
 					<a href="/" class="app-aside__logo">
 						<img class="app-aside__logo-img" alt="СВТ - СОВРЕМЕННЫЕ ВЕРТИКАЛЬНЫЕ ТЕХНОЛОГИИ" src="img/logo.svg">
@@ -233,6 +236,24 @@
 								</div>
 							</div>
 						</div>
+					</div>
+				</section>
+
+				<section class="app-section section-discount --aside-pd-left-offset">
+					<div class="discount">
+						<div class="discount__text">
+							<div class="discount__title">
+								СКИДКА 10%
+							</div>
+							<div class="discount__desc">
+								при оформлении заказа
+								<br>на нашем сайте
+							</div>
+						</div>
+						<div class="discount__arrow"></div>
+						<a href="#" class="btn btn_border_wh btn_arrow">
+							Получить скидку
+						</a>
 					</div>
 				</section>
 

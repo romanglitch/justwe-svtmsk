@@ -35,6 +35,6 @@ input, button, textarea {
     font-family: var(--primaryFont);
 }
 
-.modals, .mobile-device-helper {
+.modals, .mobile-device-helper, .app-mobile-header {
     display: none;
 }

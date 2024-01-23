@@ -39,7 +39,8 @@ $(function() {
             $phone: $('.js-phone-mask')
         },
         swiper: {
-            heroCarousel: '.hero-carousel'
+            heroCarousel: '.hero-carousel',
+            spvCarousel: '.spv-carousel'
         }
     }
 
@@ -100,8 +101,14 @@ $(function() {
             let stickyTop = $elevatorElement.offset().top
             let stickyCalc = stickyTop + Number($elevatorElement.css('--animation-start-px'))
 
-            $(window).on('scroll', function (e) {
+            $(window).on('load scroll', function (e) {
                 let windowTop = $(window).scrollTop();
+
+                if (windowTop >= stickyTop) {
+                    $elevatorElement.addClass('--sticky-bg')
+                } else {
+                    $elevatorElement.removeClass('--sticky-bg')
+                }
 
                 if (windowTop >= stickyCalc) {
                     $elevatorElement.addClass('--animation')
@@ -109,231 +116,6 @@ $(function() {
                     $elevatorElement.removeClass('--animation')
                 }
             })
-        },
-
-        // Default components
-        glAccordion: (selector, options) => {
-            let defaults = {
-                openOnlyOne: true,
-                animationDuration: 200,
-                contentsAttrName: 'data-accordion-content',
-                buttonsAttrName: 'data-accordion-target',
-                activeAccordionClass: 'js-gl-acc-active',
-                activeButtonsClass: 'js-gl-acc-button-active',
-                activeContentClass: 'js-gl-acc-content-active',
-            }; options = $.extend( {}, defaults, options )
-
-            let elements = {
-                $accordionItems: $( selector ),
-                $buttonItems: $( selector ).find('[' + options.buttonsAttrName + ']'),
-                $contentItems: $( selector ).find('[' + options.contentsAttrName + ']')
-            }
-
-            elements.$contentItems.hide()
-
-            elements.$buttonItems.on('click', function (e) {
-                e.preventDefault()
-
-                let $thisButton = $( this ),
-                    $thisAccordion = $thisButton.closest( elements.$accordionItems ),
-                    $thisContent = $thisAccordion.find( '[' + options.contentsAttrName + '="' + $thisButton.attr( options.buttonsAttrName ) + '"]' )
-
-                if ( $thisContent.css('display') === 'none' ) {
-                    if (options.openOnlyOne) {
-                        elements.$contentItems.slideUp(options.animationDuration).removeClass(options.activeContentClass)
-                        elements.$buttonItems.removeClass(options.activeButtonsClass)
-
-                        $thisContent.slideDown(options.animationDuration).addClass(options.activeContentClass)
-                        $thisButton.addClass(options.activeButtonsClass)
-                    } else {
-                        $thisContent.slideDown(options.animationDuration).addClass(options.activeContentClass)
-                        $thisButton.addClass(options.activeButtonsClass)
-                    }
-                } else {
-                    $thisContent.slideUp(options.animationDuration).removeClass(options.activeContentClass)
-                    $thisButton.removeClass(options.activeButtonsClass)
-                }
-
-                let showingContentsLength = $thisAccordion.find('.' + options.activeContentClass).length;
-
-                if ( showingContentsLength > 0 ) {
-                    if (options.openOnlyOne) {
-                        elements.$accordionItems.not($thisAccordion).removeClass(options.activeAccordionClass);
-                    }
-                    $thisAccordion.addClass(options.activeAccordionClass)
-                } else {
-                    $thisAccordion.removeClass(options.activeAccordionClass)
-                }
-            })
-        },
-        glTabs: (options) => {
-            let defaultActiveTab;
-
-            if($(options.tabNavSelector + '[data-active-tab]').index() > 0) {
-                defaultActiveTab = $(options.tabNavSelector + '[data-active-tab]').index();
-            } else {
-                defaultActiveTab = 0;
-            }
-            let defaults = {
-                tabNavSelector: null,
-                tabContentSelector: null,
-                defaultActiveTab: defaultActiveTab,
-                activeTabClass: 'js-gl-tab-active',
-                activeNavClass: 'js-gl-tab-link-active',
-            }; options = $.extend( {}, defaults, options )
-
-            let elements = {
-                $navItems: $(options.tabNavSelector),
-                $contentItems: $(options.tabContentSelector)
-            }
-
-            elements.$contentItems.hide()
-            elements.$contentItems.eq(options.defaultActiveTab).show().addClass(options.activeTabClass)
-            elements.$navItems.eq(options.defaultActiveTab).addClass(options.activeNavClass).attr('disabled', 'disabled')
-
-            elements.$navItems.on('click', function (e) {
-                e.preventDefault()
-
-                let $thisButton = $( this ),
-                    $thisIndex = elements.$navItems.index(this),
-                    $thisContent = elements.$contentItems.eq($thisIndex);
-
-                elements.$contentItems.hide().removeClass(options.activeTabClass)
-                elements.$navItems.removeClass(options.activeNavClass).removeAttr('disabled')
-
-                $thisContent.show().addClass(options.activeTabClass)
-                $thisButton.addClass(options.activeNavClass).attr('disabled', 'disabled')
-            })
-
-            return false
-        },
-        glAttrChanger: (options) => {
-            let defaults = {
-                targetSelector: null,
-                buttonSelector: null,
-                targetTextSelector: null,
-                targetAttrName: null,
-                dataAttrName: 'data-attr-value',
-                dataTextAttrName: 'data-attr-text',
-                activeButtonClass: 'js-gl-attr-active'
-            }; options = $.extend( {}, defaults, options )
-
-            let elements = {
-                $targetItem: $(options.targetSelector),
-                $buttonItems: $(options.buttonSelector),
-                $targetTextItems: $(options.targetTextSelector),
-                $firstButtonItem: $(options.buttonSelector).first()
-            }
-
-            elements.$targetItem.attr(options.targetAttrName, elements.$firstButtonItem.attr(options.dataAttrName))
-            elements.$firstButtonItem.addClass(options.activeButtonClass).attr('disabled', 'disabled')
-
-            elements.$targetTextItems.html(elements.$firstButtonItem.attr(options.dataTextAttrName))
-
-            elements.$buttonItems.on('click', function (e) {
-                e.preventDefault()
-
-                let $thisButton = $( this ),
-                    thisData = $thisButton.attr(options.dataAttrName),
-                    thisText = $thisButton.attr(options.dataTextAttrName)
-
-                elements.$buttonItems.removeClass(options.activeButtonClass).removeAttr('disabled')
-                elements.$targetItem.attr(options.targetAttrName, thisData)
-                elements.$targetTextItems.html(thisText)
-                $thisButton.addClass(options.activeButtonClass).attr('disabled', 'disabled')
-            })
-
-            return false
-        },
-        glToggleClass: (options) => {
-            let defaults = {
-                targetSelector: null,
-                buttonSelector: null,
-                toggleOnInit: false,
-                detectOutsideClick: false,
-                toggleFalseOnScroll: false,
-                activeTargetClass: 'js-gl-toggle-target-active',
-                activeButtonClass: 'js-gl-toggle-button-active',
-                on: {
-                    changeState: null
-                }
-            }; options = $.extend( {}, defaults, options )
-
-            let elements = {
-                $window: $(window),
-                $targetElement: $(options.targetSelector),
-                $button: $(options.buttonSelector),
-            }
-
-            let changeTargetState = (isToggle) => {
-                if (!elements.$targetElement.hasClass(options.activeTargetClass)) {
-                    elements.$targetElement.addClass(options.activeTargetClass)
-                    elements.$button.addClass(options.activeButtonClass)
-
-                    isToggle = true
-                } else {
-                    elements.$targetElement.removeClass(options.activeTargetClass)
-                    elements.$button.removeClass(options.activeButtonClass)
-
-                    isToggle = false
-                }
-
-                if (typeof options.on.changeState == 'function') {
-                    options.on.changeState.call(this, elements, isToggle);
-                }
-            }
-
-            if (options.toggleOnInit) {
-                changeTargetState()
-            }
-
-            elements.$button.on('click', function (e) {
-                e.stopPropagation()
-                changeTargetState()
-            })
-
-            // DEPRECATED
-            if (options.toggleFalseOnScroll) {
-                let scrollTimeout = {
-                    timeoutInstance: null,
-                    timeoutTime: 100
-                }
-
-                let scrollOffset = 300
-
-                let thisScrollPosition = $(window).scrollTop(),
-                    ScrollPositionMax = thisScrollPosition + scrollOffset,
-                    ScrollPositionMin = thisScrollPosition - scrollOffset
-
-                $(window).on('scroll', function () {
-                    if (!scrollTimeout.timeoutInstance) {
-                        scrollTimeout.timeoutInstance = setTimeout(function () {
-
-                            if ($(this).scrollTop() > ScrollPositionMax || $(this).scrollTop() < ScrollPositionMin) {
-                                if (elements.$targetElement.hasClass(options.activeTargetClass)) {
-                                    changeTargetState()
-                                }
-                            }
-
-                            scrollTimeout.timeoutInstance = null;
-                        }, scrollTimeout.timeoutTime);
-                    }
-                });
-            }
-
-            if (options.detectOutsideClick) {
-                elements.$window.on('click', function (e) {
-                    if (elements.$targetElement.hasClass(options.activeTargetClass) && !$(e.target).closest('.select2-dropdown').length) {
-                        changeTargetState()
-                    }
-                })
-
-                elements.$targetElement.on("click",function(e){
-                    e.stopPropagation()
-                })
-            }
-
-            return false
         },
 
         // Vendor components
@@ -387,26 +169,27 @@ $(function() {
                 },
                 on: {
                     init: function (swiper) {
-                        const $asideElement = $('.app-aside')
-
-                        const preventScroll = (e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-
-                            return false;
-                        }
-
-                        const toggleScrollOnAside = () => {
-                            if (helpers.isInViewport(swiper.el)) {
-                                $asideElement.on('wheel', preventScroll)
-                            } else {
-                                $asideElement.off('wheel', preventScroll)
-                            }
-
-                            return false
-                        }
-
-                        $(window).on('load scroll', toggleScrollOnAside)
+                        // !TODO: refactoring block scroll functions
+                        // const $asideElement = $('.app-aside')
+                        //
+                        // const preventScroll = (e) => {
+                        //     e.preventDefault();
+                        //     e.stopPropagation();
+                        //
+                        //     return false;
+                        // }
+                        //
+                        // const toggleScrollOnAside = () => {
+                        //     if (helpers.isInViewport(swiper.el)) {
+                        //         $asideElement.on('wheel', preventScroll)
+                        //     } else {
+                        //         $asideElement.off('wheel', preventScroll)
+                        //     }
+                        //
+                        //     return false
+                        // }
+                        //
+                        // $(window).on('load scroll', toggleScrollOnAside)
                     },
                     progress: function (swiper, progress) {
                         GL_APP.elements.$html.css({
@@ -417,6 +200,15 @@ $(function() {
                     fromEdge: function (swiper) {
                         !helpers.isInViewport(swiper.el) ? $('html,body').animate({ scrollTop: 0 }, 300) : false
                     }
+                },
+            })
+
+            GL_APP.instances.swiper.spvCarousel = new Swiper(GL_APP.elements.swiper.spvCarousel , {
+                slidesPerView: 'auto',
+                spaceBetween: 15,
+                navigation: {
+                    nextEl: '.swiper-button-next.spv-carousel-next',
+                    prevEl: '.swiper-button-prev.spv-carousel-prev',
                 },
             })
         },

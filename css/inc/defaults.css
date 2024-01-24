@@ -1,0 +1,40 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow: auto;
+    font-size: var(--html-font-size);
+    line-height: 1.4;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    font-family: var(--primaryFont);
+    font-size: var(--main-font-size);
+    background: var(--body-bg-color);
+    color: var(--body-text-color);
+    position: relative;
+    min-height: 100%;
+    -webkit-text-size-adjust: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+input, button, textarea {
+    font-family: var(--primaryFont);
+}
+
+.modals, .mobile-device-helper, .app-mobile-header {
+    display: none;
+}

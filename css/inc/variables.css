@@ -1,0 +1,28 @@
+:root {
+    /* Fonts */
+    --primaryFont: 'DIN Pro', sans-serif;
+    --secondaryFont: 'DIN Pro Cond', sans-serif;
+
+    /* Fonts - settings */
+    --html-font-size: 0.83vw; /* (1920) 16px */
+    --main-font-size: 1rem; /* 16px */
+
+    /* Sizes */
+    --aside-width: calc(14.6vw + var(--sb-width));
+
+    /* Colors */
+    --body-bg-color: #fff;
+    --body-text-color: #3B505B;
+    --placeholder-color: #3B505B;
+    --dark: #3B505B;
+    --light-gray: #99AFBB;
+    --gray: #BCBCBC;
+    --primary: #00A1B7;
+
+    /* JS Defaults */
+    --preloader-anim-duration: 666; /* Preloader animation duration */
+    --preloader-delay: 330; /* Preloader delay */
+    --sb-width: 5px; /* Scrollbar width */
+    --hero-carousel-progress: 0; /* Hero carousel default progress */
+    --hero-carousel-speed: 1000ms; /* Hero carousel transition speed */
+}

@@ -11,12 +11,15 @@
     }
 
     /* Hide document for dev */
-    html {
-        opacity: 0;
-        overflow: hidden;
-        display: none;
-        visibility: hidden;
-        pointer-events: none;
+    /*html {*/
+    /*    opacity: 0;*/
+    /*    overflow: hidden;*/
+    /*    display: none;*/
+    /*    visibility: hidden;*/
+    /*    pointer-events: none;*/
+    /*}*/
+    body {
+        min-width: 992px;
     }
 }
 

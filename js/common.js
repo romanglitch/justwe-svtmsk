@@ -57,7 +57,7 @@ $(function() {
 
             )
         },
-        scrollToggle: () => {
+        scrollToggleInit: () => {
             let keys = {37: 1, 38: 1, 39: 1, 40: 1};
 
             function preventDefault(e) {
@@ -81,14 +81,14 @@ $(function() {
             let wheelOpt = supportsPassive ? { passive: false } : false;
             let wheelEvent = 'onwheel' in document.createElement('div') ? 'wheel' : 'mousewheel';
 
-            window.disableScroll = function () {
+            helpers.scrollToggleDisable = function () {
                 window.addEventListener('DOMMouseScroll', preventDefault, false); // older FF
                 window.addEventListener(wheelEvent, preventDefault, wheelOpt); // modern desktop
                 window.addEventListener('touchmove', preventDefault, wheelOpt); // mobile
                 window.addEventListener('keydown', preventDefaultForScrollKeys, false);
             }
 
-            window.enableScroll = function () {
+            helpers.scrollToggleEnable = function () {
                 window.removeEventListener('DOMMouseScroll', preventDefault, false);
                 window.removeEventListener(wheelEvent, preventDefault, wheelOpt);
                 window.removeEventListener('touchmove', preventDefault, wheelOpt);
@@ -98,7 +98,7 @@ $(function() {
     }
 
     /* Helpers init */
-    helpers.scrollToggle()
+    helpers.scrollToggleInit()
 
     /* Components */
     GL_APP.components = {
@@ -193,25 +193,19 @@ $(function() {
         glInitSwipers: () => {
             GL_APP.instances.swiper.heroCarousel = new Swiper(GL_APP.elements.swiper.heroCarousel , {
                 direction: 'vertical',
-                slidesPerView: 1,
                 spaceBetween: 0,
                 speed: 1000,
-                touchReleaseOnEdges: true,
                 watchSlidesProgress: true,
                 mousewheel: {
                     releaseOnEdges: true,
                 },
+                touchReleaseOnEdges: true,
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true,
                 },
                 on: {
                     progress: function (swiper, progress) {
-                        disableScroll()
-                        setTimeout(function () {
-                            enableScroll()
-                        }, swiper.passedParams.speed)
-
                         GL_APP.elements.$html.css({
                             '--hero-carousel-progress': Math.round(progress * 100),
                             '--hero-carousel-speed': `${swiper.passedParams.speed}ms`
@@ -219,6 +213,12 @@ $(function() {
                     },
                     fromEdge: function (swiper) {
                         !helpers.isInViewport(swiper.el) ? $('html,body').animate({ scrollTop: 0 }, 300) : false
+                    },
+                    slideChangeTransitionStart: function () {
+                        helpers.scrollToggleDisable()
+                    },
+                    slideChangeTransitionEnd: function () {
+                        helpers.scrollToggleEnable()
                     }
                 },
             })

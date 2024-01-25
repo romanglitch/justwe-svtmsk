@@ -141,24 +141,26 @@ $(function() {
         glElevatorAnimations: () => {
             const $elevatorElement = $('.elevator')
 
-            let stickyTop = $elevatorElement.offset().top
-            let stickyCalc = stickyTop + Number($elevatorElement.css('--animation-start-px'))
+            if ($elevatorElement.length) {
+                let stickyTop = $elevatorElement.offset().top
+                let stickyCalc = stickyTop + Number($elevatorElement.css('--animation-start-px'))
 
-            $(window).on('load scroll resize', function (e) {
-                let windowTop = $(window).scrollTop();
+                $(window).on('load scroll resize', function (e) {
+                    let windowTop = $(window).scrollTop();
 
-                if (windowTop >= stickyTop) {
-                    $elevatorElement.addClass('--sticky-bg')
-                } else {
-                    $elevatorElement.removeClass('--sticky-bg')
-                }
+                    if (windowTop >= stickyTop) {
+                        $elevatorElement.addClass('--sticky-bg')
+                    } else {
+                        $elevatorElement.removeClass('--sticky-bg')
+                    }
 
-                if (windowTop >= stickyCalc) {
-                    $elevatorElement.addClass('--animation')
-                } else {
-                    $elevatorElement.removeClass('--animation')
-                }
-            })
+                    if (windowTop >= stickyCalc) {
+                        $elevatorElement.addClass('--animation')
+                    } else {
+                        $elevatorElement.removeClass('--animation')
+                    }
+                })
+            }
         },
 
         // Vendor components

@@ -110,9 +110,11 @@ $(function() {
             })
 
             GL_APP.elements.$html.addClass('--ready')
+            helpers.scrollToggleDisable()
             setTimeout(() => {
                 $('.preloader').fadeOut(GL_APP.variables.preloader.animationDuration, () => {
                     GL_APP.elements.$html.addClass('--loaded')
+                    helpers.scrollToggleEnable()
                 })
             }, GL_APP.variables.preloader.delay)
         },

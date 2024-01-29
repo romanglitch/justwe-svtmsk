@@ -994,6 +994,25 @@ a {
     margin: auto;
 }
 
+.modal__title.--cur-icon {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 2vw;
+}
+
+.modal__title.--cur-icon:after {
+    content: "";
+    background: url('data:image/svg+xml,<svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.2317 22V6.292H14.3677C16.289 6.292 17.7117 6.68067 18.6357 7.458C19.5743 8.23533 20.0437 9.36467 20.0437 10.846C20.0437 11.8433 19.8163 12.7013 19.3617 13.42C18.907 14.124 18.2323 14.6667 17.3377 15.048C16.4577 15.4293 15.365 15.62 14.0597 15.62H12.2117V22H10.2317ZM8.31766 19.008V17.578H15.8417V19.008H8.31766ZM8.31766 15.62V13.948H13.3557V15.62H8.31766ZM13.7737 13.948C14.6683 13.948 15.4237 13.8527 16.0397 13.662C16.6703 13.4713 17.1543 13.156 17.4917 12.716C17.829 12.276 17.9977 11.6747 17.9977 10.912C17.9977 9.91467 17.6897 9.174 17.0737 8.69C16.4577 8.206 15.497 7.964 14.1917 7.964H12.2117V13.948H13.7737Z" fill="%2300A1B7"/><path fill-rule="evenodd" clip-rule="evenodd" d="M14 26C20.6274 26 26 20.6274 26 14C26 7.37258 20.6274 2 14 2C7.37258 2 2 7.37258 2 14C2 20.6274 7.37258 26 14 26ZM14 28C21.732 28 28 21.732 28 14C28 6.26801 21.732 0 14 0C6.26801 0 0 6.26801 0 14C0 21.732 6.26801 28 14 28Z" fill="%2300A1B7"/></svg>') center/contain no-repeat;
+    width: 1.46vw;
+    height: 1.46vw;
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1.56vw;
+    margin: auto;
+}
+
 .section-discount {
     background: var(--primary);
     color: #fff;

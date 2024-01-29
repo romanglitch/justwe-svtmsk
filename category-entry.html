@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="referrer" content="origin">
+		<meta name="HandheldFriendly" content="true">
+
+		<title>[SVT - Frontend]</title>
+
+		<!-- vendor styles -->
+		<link href="css/vendor/normalize.min.css" rel="stylesheet">
+		<link href="css/vendor/swiper-bundle.min.css" rel="stylesheet">
+		<link href="css/vendor/select2.min.css" rel="stylesheet">
+		<link href="css/vendor/jquery.fancybox.min.css" rel="stylesheet">
+
+		<!-- main styles -->
+		<link href="css/main.css" rel="stylesheet">
+		<link href="css/responsive.css" rel="stylesheet">
+		<link href="css/dev.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="app">
+			<header class="app-mobile-header">
+				<a href="/" class="app-mobile-header__logo">
+					<img class="app-mobile-header__logo-img" alt="СВТ - СОВРЕМЕННЫЕ ВЕРТИКАЛЬНЫЕ ТЕХНОЛОГИИ" src="img/logo.svg">
+				</a>
+				<button class="app-mobile-header__menu-btn js-modals" data-fancybox="#app-aside"></button>
+			</header>
+			<aside class="app-aside" id="app-aside">
+				<div class="app-aside__bg">
+					<div class="app-aside__inner">
+						<a href="/" class="app-aside__logo">
+							<img class="app-aside__logo-img" alt="СВТ - СОВРЕМЕННЫЕ ВЕРТИКАЛЬНЫЕ ТЕХНОЛОГИИ" src="img/logo.svg">
+						</a>
+						<nav class="app-aside__nav">
+							<a href="#" class="app-aside__nav-item">
+								Лифты
+							</a>
+							<a href="#" class="app-aside__nav-item">
+								Эскалаторы и
+								<br>травалаторы
+							</a>
+							<a href="#" class="app-aside__nav-item">
+								Услуги
+							</a>
+							<a href="#" class="app-aside__nav-item">
+								Запчасти
+							</a>
+							<a href="#" class="app-aside__nav-item">
+								Наши работы
+							</a>
+							<a href="#" class="app-aside__nav-item">
+								О компании
+							</a>
+							<a href="#" class="app-aside__nav-item">
+								Доставка и оплата
+							</a>
+							<a href="#" class="app-aside__nav-item">
+								Контакты
+							</a>
+							<a href="#" class="app-aside__nav-item">
+								<i class="cart-icon"><span>22</span></i>
+								Корзина
+							</a>
+							<a href="#" class="app-aside__nav-item">
+								<i class="fav-icon"></i>
+								Избранное
+							</a>
+						</nav>
+						<div class="app-aside__divider"></div>
+						<div class="app-aside__contacts">
+							<a href="#" class="app-aside__contacts-phone">
+								(495) <b>724 14 33</b>
+							</a>
+							<a href="#" class="app-aside__contacts-link js-modals" data-src="#modal-callback">
+								Обратный звонок
+							</a>
+						</div>
+						<div class="app-aside__buttons">
+							<a href="#" class="btn btn_border_wh js-modals" data-src="#modal-offer">
+								Отправить заявку
+							</a>
+						</div>
+						<div class="app-aside__bottom">
+							<div class="app-aside__bottom-text">
+								<b>© 2024 «SVT групп»</b>
+							</div>
+							<div class="app-aside__bottom-text">
+								Использовании информации,
+								<br>размещенной на сайте, запрещено.
+							</div>
+							<a href="#" class="app-aside__bottom-link">
+								Политика безопасности
+							</a>
+							<a href="#" class="app-aside__bottom-link">
+								Карта сайта
+							</a>
+						</div>
+					</div>
+				</div>
+			</aside>
+			<main class="app-main">
+				<section class="app-section section-cat-entry --aside-offset">
+					<div class="cat-entry">
+						<div class="cat-entry__row">
+							<div class="cat-entry__col">
+								<img class="cat-entry__image lazy" data-src="img/categories/cat-item-7.jpg" alt="null" src="img/lazy-placeholder.png">
+							</div>
+							<div class="cat-entry__col">
+								<div class="cat-entry__content">
+									<div class="cat-entry__title">
+										<span>ИНТЕРЕСУЕТ</span>
+										<br>КОТТЕДЖНЫЙ
+										<br>ЛИФТ?
+									</div>
+									<a href="#" class="btn btn_primary btn_arrow js-modals" data-src="#modal-offer">
+										<span>Отправить заявку</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="app-section --aside-offset">
+					<div class="app-section-content">
+						<div class="text-block">
+							<div class="text-block__row">
+								<div class="text-block__col">
+									<p class="text-block__paragraph">
+										В каталоге «СВТ» вы найдете первоклассные коттеджные лифты от легендарных европейских брендов. Каждая представленная модель соответствует международным стандартам качества и требованиям к безопасности. Наше оборудование не только прекрасно справляется с функциональными задачами, но и становится ярким элементом декора. Воспользуйтесь формой обратной связи, чтобы купить лифт для коттеджа: цена и другая важная информация о товаре указана на сайте.
+									</p>
+									<h5 class="text-block__h5">
+										Ассортимент
+									</h5>
+									<p class="text-block__paragraph">
+										Предложены следующие серии лифтов:
+									</p>
+									<ul class="text-block__list">
+										<li class="text-block__list-item">
+											гидравлические;
+										</li>
+										<li class="text-block__list-item">
+											подъемники;
+										</li>
+										<li class="text-block__list-item">
+											электрические.
+										</li>
+									</ul>
+									<p class="text-block__paragraph">
+										Все они отличаются безупречным техническим исполнением и изысканным внешним оформлением. Для них характерны превосходная гидравлика, высокий уровень безопасности, потрясающая отделка. Экономичность и компактность наряду с надежностью и прочностью – ваш лучший выбор.
+									</p>
+								</div>
+								<div class="text-block__col">
+									<h5 class="text-block__h5">
+										Стоимость коттеджного лифта
+									</h5>
+									<p class="text-block__paragraph">
+										Как официальный поставщик ведущих торговых марок, мы предлагаем прозрачные и доступные цены на лифты в коттедж. Конечная стоимость зависит от конкретной модификации модели.
+									</p>
+									<h5 class="text-block__h5">
+										Подбор индивидуального решения
+									</h5>
+									<p class="text-block__paragraph">
+										Не знаете, какую модель выбрать? Мы поможем определиться и принять верное решение. Сообщите нам свои пожелания относительно тех или иных особенностей устройства (например, вы хотите <a href="#">панорамный лифт</a> ).
+									</p>
+									<h5 class="text-block__h5">
+										Дополнительные услуги
+									</h5>
+									<p class="text-block__paragraph">
+										Напомним, у нас можно купить коттеджный лифт и заказать его монтаж. Специалисты «СВТ» имеют солидный опыт в этой отрасли. Кроме того, мы обеспечиваем плановое техническое обслуживание оборудования.
+									</p>
+								</div>
+							</div>
+							<div class="text-block__body">
+								<div class="tags">
+									<a href="#" class="tag-item">
+										Пассажирские лифты
+									</a>
+									<a href="#" class="tag-item">
+										Больничные лифты
+									</a>
+									<a href="#" class="tag-item">
+										Малогрузовые лифты
+									</a>
+									<a href="#" class="tag-item">
+										Грузовые лифты
+									</a>
+									<a href="#" class="tag-item">
+										Автомобильные лифты
+									</a>
+									<a href="#" class="tag-item">
+										Панорамные лифты
+									</a>
+									<a href="#" class="tag-item">
+										Коттеджные лифты
+									</a>
+									<a href="#" class="tag-item">
+										Гидравлические лифты
+									</a>
+									<a href="#" class="tag-item">
+										Подъемники для инвалидов
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="app-section section-portfolio --aside-offset">
+					<div class="portfolio portfolio_v2">
+						<div class="portfolio__row">
+							<div class="portfolio__col">
+								<a href="img/ref__portfolio-gallery-v2-1.jpg" class="portfolio__gallery-item" data-fancybox="portfolio-gallery">
+									<img class="portfolio__gallery-image lazy" data-src="img/ref__portfolio-gallery-v2-1.jpg" alt="null" src="img/lazy-placeholder.png">
+								</a>
+							</div>
+							<div class="portfolio__col">
+								<div class="portfolio__gallery-grid">
+									<a href="img/ref__portfolio-gallery-v2-2.jpg" class="portfolio__gallery-item" data-fancybox="portfolio-gallery">
+										<img class="portfolio__gallery-image lazy" data-src="img/ref__portfolio-gallery-v2-2.jpg" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/ref__portfolio-gallery-v2-3.jpg" class="portfolio__gallery-item" data-fancybox="portfolio-gallery">
+										<img class="portfolio__gallery-image lazy" data-src="img/ref__portfolio-gallery-v2-3.jpg" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/ref__portfolio-gallery-v2-4.jpg" class="portfolio__gallery-item" data-fancybox="portfolio-gallery">
+										<img class="portfolio__gallery-image lazy" data-src="img/ref__portfolio-gallery-v2-4.jpg" alt="null" src="img/lazy-placeholder.png">
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="app-section section-catalog --aside-offset">
+					<div class="catalog">
+						<div class="catalog-block-link lazy" data-bg="img/ref__catalog-block-image-1.jpg">
+							<div class="catalog-block-link__content">
+								<img class="catalog-block-link__icon lazy" data-src="img/ref_catalog-block-icon-1.svg" alt="null" src="img/lazy-loader.svg">
+								<div class="catalog-block-link__title">
+									ЛИФТЫ,
+									<br>ПОДЪЕМНИКИ
+								</div>
+								<a href="#" class="btn btn_border_wh btn_arrow">
+									<span>Смотреть каталог</span>
+								</a>
+							</div>
+						</div>
+						<div class="catalog-block-link lazy" data-bg="img/ref__catalog-block-image-2.jpg">
+							<div class="catalog-block-link__content">
+								<img class="catalog-block-link__icon lazy" data-src="img/ref_catalog-block-icon-2.svg" alt="null" src="img/lazy-loader.svg">
+								<div class="catalog-block-link__title">
+									ЭСКАЛАТОРЫ,
+									<br>ТРАВОЛАТОРЫ
+								</div>
+								<a href="#" class="btn btn_border_wh btn_arrow">
+									<span>Смотреть каталог</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="app-section section-discount --aside-pd-left-offset">
+					<div class="discount">
+						<div class="discount__text">
+							<div class="discount__title">
+								СКИДКА 10%
+							</div>
+							<div class="discount__desc">
+								при оформлении заказа
+								<br>на нашем сайте
+							</div>
+						</div>
+						<div class="discount__arrow"></div>
+						<a href="#" class="btn btn_border_wh btn_arrow">
+							<span>Получить скидку</span>
+						</a>
+					</div>
+				</section>
+
+				<section class="app-section section-spv --aside-offset">
+					<div class="spv">
+						<div class="spv__head">
+							<div class="app-section-title">
+								НАШИ СЕРТИФИКАТЫ
+							</div>
+							<div class="app-section-nav">
+								<div class="swiper-button-prev spv-carousel-prev"></div>
+								<div class="swiper-button-next spv-carousel-next"></div>
+							</div>
+						</div>
+						<div class="spv__body">
+							<div class="swiper spv-carousel spv-carousel_type_crt">
+								<div class="swiper-wrapper">
+									<a href="img/crt/crt-image-1.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-1.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/crt/crt-image-2.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-2.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/crt/crt-image-3.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-3.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/crt/crt-image-4.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-4.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/crt/crt-image-5.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-5.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/crt/crt-image-6.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-6.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/crt/crt-image-7.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-7.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/crt/crt-image-8.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-8.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/crt/crt-image-9.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-9.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/crt/crt-image-10.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-10.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/crt/crt-image-11.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-11.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+		</div>
+
+		<!-- popups/modals -->
+		<div class="modals">
+			<div class="modal modal-callback" id="modal-callback">
+				<div class="modal__inner">
+					<div class="modal__title --phones-icon">
+						Заказать обратный звонок
+					</div>
+					<div class="modal__description">
+						Наш специалист свяжется с Вами в течение 15 минут и ответит на все Ваши вопросы.
+						<br><span>Ежедневно, с 9:00 до 19:00</span>
+					</div>
+					<form class="modal-form">
+						<div class="modal-form__grd-inputs">
+							<label class="main-form-label">
+								<input class="main-form-input" type="text" placeholder="Ваше имя" autocomplete="off">
+							</label>
+							<label class="main-form-label">
+								<input class="main-form-input js-phone-mask" type="text" placeholder="+7 (___) ___-__-__" pattern="\d*" autocomplete="off">
+							</label>
+						</div>
+						<div class="modal-form__bottom">
+							<label class="main-form-checkbox">
+								<input class="main-form-checkbox__input js-auto-tradein" type="checkbox">
+								<span class="main-form-checkbox__checkmark"></span>
+								<span class="main-form-checkbox__text">Согласие на обработку персональных данных</span>
+							</label>
+							<button class="btn btn_primary_bg btn_arrow">
+								<span>Отправить заявку</span>
+							</button>
+							<img class="modal-form__logo" alt="СВТ - СОВРЕМЕННЫЕ ВЕРТИКАЛЬНЫЕ ТЕХНОЛОГИИ" src="img/logo-dark.svg">
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="modal modal-offer" id="modal-offer">
+				<div class="modal__inner">
+					<div class="modal__title --phones-icon">
+						Отправить заявку
+					</div>
+					<div class="modal__description">
+						Наш специалист свяжется с Вами в течение 15 минут и ответит на все Ваши вопросы.
+						<br><span>Ежедневно, с 9:00 до 19:00</span>
+					</div>
+					<form class="modal-form">
+						<div class="modal-form__inputs">
+							<label class="main-form-label">
+								<textarea class="main-form-textarea" placeholder="Текст Вашего обращения..."></textarea>
+							</label>
+						</div>
+						<div class="modal-form__grd-inputs">
+							<label class="main-form-label">
+								<input class="main-form-input" type="text" placeholder="Ваше имя" autocomplete="off">
+							</label>
+							<label class="main-form-label">
+								<input class="main-form-input js-phone-mask" type="text" placeholder="+7 (___) ___-__-__" pattern="\d*" autocomplete="off">
+							</label>
+						</div>
+						<div class="modal-form__bottom">
+							<label class="main-form-checkbox">
+								<input class="main-form-checkbox__input js-auto-tradein" type="checkbox">
+								<span class="main-form-checkbox__checkmark"></span>
+								<span class="main-form-checkbox__text">Согласие на обработку персональных данных</span>
+							</label>
+							<button class="btn btn_primary_bg btn_arrow">
+								<span>Отправить заявку</span>
+							</button>
+							<img class="modal-form__logo" alt="СВТ - СОВРЕМЕННЫЕ ВЕРТИКАЛЬНЫЕ ТЕХНОЛОГИИ" src="img/logo-dark.svg">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<!-- helper text for tablets -->
+		<div class="mobile-device-helper">
+			<div class="mobile-device-helper-inner">
+				Пожалуйста, переверните устройство. <br>Это необходимо для корректного отображения сайта.
+			</div>
+		</div>
+
+		<!-- preloader -->
+		<div class="preloader"></div>
+
+		<!-- vendor plugins -->
+		<script src="js/vendor/lazyload.min.js"></script>
+		<script src="js/vendor/jquery.min.js"></script>
+		<script src="js/vendor/swiper-bundle.min.js"></script>
+		<script src="js/vendor/select2.min.js"></script>
+		<script src="js/vendor/jquery.inputmask.min.js"></script>
+		<script src="js/vendor/jquery.fancybox.min.js"></script>
+
+		<!-- main scripts -->
+		<script src="js/common.js"></script>
+		<script src="js/_dev.js"></script>
+	</body>
+</html>

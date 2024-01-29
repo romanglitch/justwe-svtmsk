@@ -17,6 +17,12 @@ $(function() {
                 animationEffect: 'zoom-in-out',
                 touch: false,
                 autoFocus: false
+            },
+            galleryOptions : {
+                transitionDuration: 366,
+                animationEffect: 'zoom-in-out',
+                backFocus: false,
+                hash: false
             }
         }
     }
@@ -54,7 +60,6 @@ $(function() {
                 rect.left >= 0 &&
                 rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
                 rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-
             )
         },
         scrollToggleInit: () => {
@@ -238,13 +243,7 @@ $(function() {
         },
         glInitFancyBox: () => {
             GL_APP.elements.$fancyboxModals.fancybox(GL_APP.variables.fancyBox.modalsOptions)
-
-            GL_APP.elements.$fancyboxGallery.fancybox({
-                transitionDuration: 366,
-                animationEffect: 'zoom-in-out',
-                backFocus: false,
-                hash: false
-            })
+            GL_APP.elements.$fancyboxGallery.fancybox(GL_APP.variables.fancyBox.galleryOptions)
         }
     }
 

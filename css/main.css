@@ -89,6 +89,7 @@ a {
 }
 
 .btn.btn_primary {
+    background-color: transparent;
     border-color: var(--primary);
     color: var(--dark);
 }
@@ -1484,20 +1485,20 @@ a {
     grid-gap: 1.04vw;
 }
 
-.spv-carousel_slide {
-    width: 5.17vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 2.08vw;
-}
-
 .spv-carousel_image {
     object-fit: scale-down;
 }
 
 .section-spv.section-spv_type_partners .spv {
     padding: var(--padding-sm) 0;
+}
+
+.spv-carousel.spv-carousel_type_partners .spv-carousel_slide {
+    width: 5.17vw;
+    height: 2.08vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .app-pagination {

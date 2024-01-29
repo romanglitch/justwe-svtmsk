@@ -46,7 +46,8 @@ $(function() {
         },
         swiper: {
             heroCarousel: '.hero-carousel',
-            spvCarousel: '.spv-carousel'
+            spvCarousel: '.spv-carousel',
+            offersCarousel: '.offers-carousel'
         }
     }
 
@@ -238,6 +239,13 @@ $(function() {
                 navigation: {
                     nextEl: '.swiper-button-next.spv-carousel-next',
                     prevEl: '.swiper-button-prev.spv-carousel-prev',
+                },
+            })
+
+            GL_APP.instances.swiper.offersCarousel = new Swiper(GL_APP.elements.swiper.offersCarousel , {
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
                 },
             })
         },

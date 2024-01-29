@@ -10,7 +10,9 @@
     /* Sizes */
     --aside-width: calc(14.6vw + var(--sb-width));
     --padding-def: 5.21vw;
+    --padding-md: 3.39vw;
     --padding-sm: 2.60vw;
+
 
     /* Colors */
     --body-bg-color: #fff;

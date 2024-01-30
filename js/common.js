@@ -179,7 +179,7 @@ $(function() {
             }
 
             let resetValues = ($element) => {
-                if (!$element.val()) {
+                if (!$element.val() || $element.val() === 0) {
                     $element.val(1)
                     $element.trigger('change')
                 }
@@ -189,14 +189,16 @@ $(function() {
 
             elements.$counterInput.each(function () {
                 resetValues($(this))
-            })
-
-            elements.$counterInput.on('blur', function () {
-                resetValues($(this))
+                $(this).closest('.card__inner').find('.btn-cart__active span').text($(this).val())
             })
 
             elements.$counterInput.on('focus', function () {
                 $(this).trigger('select')
+            })
+
+            elements.$counterInput.on('blur', function () {
+                resetValues($(this))
+                $(this).closest('.card__inner').find('.btn-cart__active span').text($(this).val())
             })
 
             elements.buttons.$decrement.on('click', function () {
@@ -205,12 +207,14 @@ $(function() {
                 count = count < 1 ? 1 : count;
                 $input.val(count);
                 $input.trigger('change')
+                $(this).closest('.card__inner').find('.btn-cart__active span').text(count)
                 return false;
             })
 
             elements.buttons.$increment.on('click', function () {
                 let $input = $(this).parent().find('input');
                 $input.val(parseInt($input.val()) + 1);
+                $(this).closest('.card__inner').find('.btn-cart__active span').text($input.val())
                 $input.trigger('change')
                 return false;
             })

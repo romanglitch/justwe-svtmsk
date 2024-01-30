@@ -2200,28 +2200,7 @@ a {
     border-radius: 0.63vw;
     padding: 0.21vw 0.36vw;
     font-size: 0.875rem;
-}
-
-.card:hover .btn.btn-cart.--active .btn-cart__active {
-    display: none;
-}
-
-.card:hover .btn.btn-cart.--active .btn-cart__default {
-    display: block;
-}
-
-.card:hover .btn.btn-cart.--active:after {
-    display: block;
-}
-
-.card:hover .btn.btn-cart.--active {
-    border-color: var(--primary);
-    color: inherit;
-}
-
-.card:hover .btn.btn-cart.--active:hover {
-    background-color: var(--primary);
-    color: #fff;
+    min-width: 1.46vw;
 }
 
 .card__price.--disabled .card__price-value {

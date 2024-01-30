@@ -131,8 +131,7 @@
 									</label>
 									<label class="main-form-label">
 										<select class="main-form-select">
-											<option value="all" selected>Все производители</option>
-											<option value="0">Все производители</option>
+											<option value="0" selected>Все производители</option>
 											<option value="ABB">ABB</option>
 											<option value="Acla">Acla</option>
 											<option value="ALBERTO SASSI">ALBERTO SASSI</option>
@@ -238,7 +237,7 @@
 							<div class="filter-form__row">
 								<div class="filter-form__radios">
 									<label class="checkbox-tag">
-										<input class="checkbox-tag__input" type="radio" name="category">
+										<input class="checkbox-tag__input" type="radio" name="category" checked>
 										<span class="checkbox-tag__text">Лифты, подъемники</span>
 									</label>
 									<label class="checkbox-tag">
@@ -283,7 +282,7 @@
 								<div class="filter-form__inputs">
 									<label class="main-form-label">
 										<select class="main-form-select">
-											<option value="all" selected>Все</option>
+											<option value="0" selected>Все</option>
 											<option value="88">Машинное отделение</option>
 											<option value="89">Кабина и противовес лифта</option>
 											<option value="90">Система дверей лифта</option>
@@ -296,17 +295,17 @@
 							<div class="filter-form__row">
 								<div class="filter-form__triggers">
 									<div class="trigger-radio">
-										<label class="trigger-radio__item checkbox-tag_sm">
-											<input class="trigger-radio__input" type="radio" name="ava">
-											<span class="checkbox-tag__text">Все</span>
+										<label class="trigger-radio__item">
+											<input class="trigger-radio__input" type="radio" name="ava" checked>
+											<span class="trigger-radio__text">Все</span>
 										</label>
-										<label class="trigger-radio__item checkbox-tag_sm">
+										<label class="trigger-radio__item">
 											<input class="trigger-radio__input" type="radio" name="ava">
-											<span class="checkbox-tag__text">В наличии</span>
+											<span class="trigger-radio__text">В наличии</span>
 										</label>
-										<label class="trigger-radio__item checkbox-tag_sm">
+										<label class="trigger-radio__item">
 											<input class="trigger-radio__input" type="radio" name="ava">
-											<span class="checkbox-tag__text">Под заказ</span>
+											<span class="trigger-radio__text">Под заказ</span>
 										</label>
 									</div>
 								</div>
@@ -410,14 +409,675 @@
 				<section class="app-section section-page-catalog --aside-offset">
 					<div class="page-catalog">
 						<div class="page-catalog__grid">
-							<div class="catalog-item">
-								catalog-item
+							<div class="card">
+								<div class="card__inner">
+									<a href="#" class="card__thumb">
+										<img class="card__thumb__img lazy" data-src="img/ref__card-thumb.jpg" alt="null" src="img/lazy-loader.svg">
+									</a>
+									<a href="#" class="card__title">
+										<div class="card__title__text">Аккумулятор 12V 12Ah клеммы 6.3mm</div>
+									</a>
+									<div class="card__price">
+										<div class="card__price-value">
+											15 599 ₽
+										</div>
+										<div class="card__price-text">
+											В наличии
+										</div>
+									</div>
+									<div class="card__data">
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												Производитель:
+											</div>
+											<div class="card__data-item__value">
+												<b>DREHZAHL - UBERWACHUNG</b>
+											</div>
+										</div>
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												Применяемость:
+											</div>
+											<div class="card__data-item__value">
+												Kone, Canny
+											</div>
+										</div>
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												ID товара:
+											</div>
+											<div class="card__data-item__value">
+												OTH2410056
+											</div>
+										</div>
+									</div>
+									<div class="card__counter">
+										<div class="input-counter">
+											<button class="input-counter__dec"></button>
+											<label class="input-counter__label">
+												<input class="input-counter__input" type="text"/>
+											</label>
+											<button class="input-counter__inc"></button>
+										</div>
+									</div>
+									<div class="card__actions">
+										<!-- Если добавлено в корзину то добавляем класс "--active" и подставляем кол. товара в корзине -->
+										<button class="btn btn_primary btn_arrow btn-cart">
+											<span class="btn-cart__default">Добавить в корзину</span>
+											<span class="btn-cart__active">Добавлено в корзину <span>25</span></span>
+										</button>
+
+										<!-- Если добавлено в избранное то добавляем класс "--active" -->
+										<button class="btn-favourite --active">
+											<i class="btn-favourite__icon"></i>
+											<span class="btn-favourite__default">Добавить в избранное</span>
+											<span class="btn-favourite__active">Удалить из избранного</span>
+										</button>
+									</div>
+								</div>
 							</div>
-							<div class="catalog-item">
-								catalog-item
+							<div class="card">
+								<div class="card__inner">
+									<a href="#" class="card__thumb">
+										<img class="card__thumb__img lazy" data-src="img/ref__card-thumb.jpg" alt="null" src="img/lazy-loader.svg">
+									</a>
+									<a href="#" class="card__title">
+										<div class="card__title__text">Аккумулятор 12V 12Ah клеммы 6.3mm</div>
+									</a>
+									<div class="card__price">
+										<div class="card__price-value">
+											15 599 ₽
+										</div>
+										<div class="card__price-text">
+											В наличии
+										</div>
+									</div>
+									<div class="card__data">
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												Производитель:
+											</div>
+											<div class="card__data-item__value">
+												<b>DREHZAHL - UBERWACHUNG</b>
+											</div>
+										</div>
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												Применяемость:
+											</div>
+											<div class="card__data-item__value">
+												Kone, Canny
+											</div>
+										</div>
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												ID товара:
+											</div>
+											<div class="card__data-item__value">
+												OTH2410056
+											</div>
+										</div>
+									</div>
+									<div class="card__counter">
+										<div class="input-counter">
+											<button class="input-counter__dec"></button>
+											<label class="input-counter__label">
+												<input class="input-counter__input" type="text"/>
+											</label>
+											<button class="input-counter__inc"></button>
+										</div>
+									</div>
+									<div class="card__actions">
+										<!-- Если добавлено в корзину то добавляем класс "--active" и подставляем кол. товара в корзине -->
+										<button class="btn btn_primary btn_arrow btn-cart">
+											<span class="btn-cart__default">Добавить в корзину</span>
+											<span class="btn-cart__active">Добавлено в корзину <span>25</span></span>
+										</button>
+
+										<!-- Если добавлено в избранное то добавляем класс "--active" -->
+										<button class="btn-favourite">
+											<i class="btn-favourite__icon"></i>
+											<span class="btn-favourite__default">Добавить в избранное</span>
+											<span class="btn-favourite__active">Удалить из избранного</span>
+										</button>
+									</div>
+								</div>
 							</div>
-							<div class="catalog-item">
-								catalog-item
+							<div class="card">
+								<div class="card__inner">
+									<a href="#" class="card__thumb">
+										<img class="card__thumb__img lazy" data-src="img/ref__card-thumb.jpg" alt="null" src="img/lazy-loader.svg">
+									</a>
+									<a href="#" class="card__title">
+										<div class="card__title__text">Аккумулятор 12V 12Ah клеммы 6.3mm</div>
+									</a>
+									<div class="card__price --disabled">
+										<div class="card__price-value">
+											Цена по запросу
+										</div>
+										<div class="card__price-text">
+											Под заказ
+										</div>
+									</div>
+									<div class="card__data">
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												Производитель:
+											</div>
+											<div class="card__data-item__value">
+												<b>DREHZAHL - UBERWACHUNG</b>
+											</div>
+										</div>
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												Применяемость:
+											</div>
+											<div class="card__data-item__value">
+												Kone, Canny
+											</div>
+										</div>
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												ID товара:
+											</div>
+											<div class="card__data-item__value">
+												OTH2410056
+											</div>
+										</div>
+									</div>
+									<div class="card__counter">
+										<div class="input-counter">
+											<button class="input-counter__dec"></button>
+											<label class="input-counter__label">
+												<input class="input-counter__input" type="text" value="25"/>
+											</label>
+											<button class="input-counter__inc"></button>
+										</div>
+									</div>
+									<div class="card__actions">
+										<!-- Если добавлено в корзину то добавляем класс "--active" и подставляем кол. товара в корзине -->
+										<button class="btn btn_primary btn_arrow btn-cart --active">
+											<span class="btn-cart__default">Добавить в корзину</span>
+											<span class="btn-cart__active">Добавлено в корзину <span>25</span></span>
+										</button>
+
+										<!-- Если добавлено в избранное то добавляем класс "--active" -->
+										<button class="btn-favourite">
+											<i class="btn-favourite__icon"></i>
+											<span class="btn-favourite__default">Добавить в избранное</span>
+											<span class="btn-favourite__active">Удалить из избранного</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card__inner">
+									<a href="#" class="card__thumb">
+										<img class="card__thumb__img lazy" data-src="img/ref__card-thumb.jpg" alt="null" src="img/lazy-loader.svg">
+									</a>
+									<a href="#" class="card__title">
+										<div class="card__title__text">Аккумулятор 12V 12Ah клеммы 6.3mm</div>
+									</a>
+									<div class="card__price">
+										<div class="card__price-value">
+											15 599 ₽
+										</div>
+										<div class="card__price-text">
+											В наличии
+										</div>
+									</div>
+									<div class="card__data">
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												Производитель:
+											</div>
+											<div class="card__data-item__value">
+												<b>DREHZAHL - UBERWACHUNG</b>
+											</div>
+										</div>
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												Применяемость:
+											</div>
+											<div class="card__data-item__value">
+												Kone, Canny
+											</div>
+										</div>
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												ID товара:
+											</div>
+											<div class="card__data-item__value">
+												OTH2410056
+											</div>
+										</div>
+									</div>
+									<div class="card__counter">
+										<div class="input-counter">
+											<button class="input-counter__dec"></button>
+											<label class="input-counter__label">
+												<input class="input-counter__input" type="text"/>
+											</label>
+											<button class="input-counter__inc"></button>
+										</div>
+									</div>
+									<div class="card__actions">
+										<!-- Если добавлено в корзину то добавляем класс "--active" и подставляем кол. товара в корзине -->
+										<button class="btn btn_primary btn_arrow btn-cart">
+											<span class="btn-cart__default">Добавить в корзину</span>
+											<span class="btn-cart__active">Добавлено в корзину <span>25</span></span>
+										</button>
+
+										<!-- Если добавлено в избранное то добавляем класс "--active" -->
+										<button class="btn-favourite">
+											<i class="btn-favourite__icon"></i>
+											<span class="btn-favourite__default">Добавить в избранное</span>
+											<span class="btn-favourite__active">Удалить из избранного</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card__inner">
+									<a href="#" class="card__thumb">
+										<img class="card__thumb__img lazy" data-src="img/ref__card-thumb.jpg" alt="null" src="img/lazy-loader.svg">
+									</a>
+									<a href="#" class="card__title">
+										<div class="card__title__text">Аккумулятор 12V 12Ah клеммы 6.3mm</div>
+									</a>
+									<div class="card__price">
+										<div class="card__price-value">
+											15 599 ₽
+										</div>
+										<div class="card__price-text">
+											В наличии
+										</div>
+									</div>
+									<div class="card__data">
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												Производитель:
+											</div>
+											<div class="card__data-item__value">
+												<b>DREHZAHL - UBERWACHUNG</b>
+											</div>
+										</div>
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												Применяемость:
+											</div>
+											<div class="card__data-item__value">
+												Kone, Canny
+											</div>
+										</div>
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												ID товара:
+											</div>
+											<div class="card__data-item__value">
+												OTH2410056
+											</div>
+										</div>
+									</div>
+									<div class="card__counter">
+										<div class="input-counter">
+											<button class="input-counter__dec"></button>
+											<label class="input-counter__label">
+												<input class="input-counter__input" type="text"/>
+											</label>
+											<button class="input-counter__inc"></button>
+										</div>
+									</div>
+									<div class="card__actions">
+										<!-- Если добавлено в корзину то добавляем класс "--active" и подставляем кол. товара в корзине -->
+										<button class="btn btn_primary btn_arrow btn-cart">
+											<span class="btn-cart__default">Добавить в корзину</span>
+											<span class="btn-cart__active">Добавлено в корзину <span>25</span></span>
+										</button>
+
+										<!-- Если добавлено в избранное то добавляем класс "--active" -->
+										<button class="btn-favourite">
+											<i class="btn-favourite__icon"></i>
+											<span class="btn-favourite__default">Добавить в избранное</span>
+											<span class="btn-favourite__active">Удалить из избранного</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card__inner">
+									<a href="#" class="card__thumb">
+										<img class="card__thumb__img lazy" data-src="img/ref__card-thumb.jpg" alt="null" src="img/lazy-loader.svg">
+									</a>
+									<a href="#" class="card__title">
+										<div class="card__title__text">Аккумулятор 12V 12Ah клеммы 6.3mm</div>
+									</a>
+									<div class="card__price">
+										<div class="card__price-value">
+											15 599 ₽
+										</div>
+										<div class="card__price-text">
+											В наличии
+										</div>
+									</div>
+									<div class="card__data">
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												Производитель:
+											</div>
+											<div class="card__data-item__value">
+												<b>DREHZAHL - UBERWACHUNG</b>
+											</div>
+										</div>
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												Применяемость:
+											</div>
+											<div class="card__data-item__value">
+												Kone, Canny
+											</div>
+										</div>
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												ID товара:
+											</div>
+											<div class="card__data-item__value">
+												OTH2410056
+											</div>
+										</div>
+									</div>
+									<div class="card__counter">
+										<div class="input-counter">
+											<button class="input-counter__dec"></button>
+											<label class="input-counter__label">
+												<input class="input-counter__input" type="text"/>
+											</label>
+											<button class="input-counter__inc"></button>
+										</div>
+									</div>
+									<div class="card__actions">
+										<!-- Если добавлено в корзину то добавляем класс "--active" и подставляем кол. товара в корзине -->
+										<button class="btn btn_primary btn_arrow btn-cart">
+											<span class="btn-cart__default">Добавить в корзину</span>
+											<span class="btn-cart__active">Добавлено в корзину <span>25</span></span>
+										</button>
+
+										<!-- Если добавлено в избранное то добавляем класс "--active" -->
+										<button class="btn-favourite --active">
+											<i class="btn-favourite__icon"></i>
+											<span class="btn-favourite__default">Добавить в избранное</span>
+											<span class="btn-favourite__active">Удалить из избранного</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card__inner">
+									<a href="#" class="card__thumb">
+										<img class="card__thumb__img lazy" data-src="img/ref__card-thumb.jpg" alt="null" src="img/lazy-loader.svg">
+									</a>
+									<a href="#" class="card__title">
+										<div class="card__title__text">Аккумулятор 12V 12Ah клеммы 6.3mm</div>
+									</a>
+									<div class="card__price --disabled">
+										<div class="card__price-value">
+											Цена по запросу
+										</div>
+										<div class="card__price-text">
+											Под заказ
+										</div>
+									</div>
+									<div class="card__data">
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												Производитель:
+											</div>
+											<div class="card__data-item__value">
+												<b>DREHZAHL - UBERWACHUNG</b>
+											</div>
+										</div>
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												Применяемость:
+											</div>
+											<div class="card__data-item__value">
+												Kone, Canny
+											</div>
+										</div>
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												ID товара:
+											</div>
+											<div class="card__data-item__value">
+												OTH2410056
+											</div>
+										</div>
+									</div>
+									<div class="card__counter">
+										<div class="input-counter">
+											<button class="input-counter__dec"></button>
+											<label class="input-counter__label">
+												<input class="input-counter__input" type="text" value="25"/>
+											</label>
+											<button class="input-counter__inc"></button>
+										</div>
+									</div>
+									<div class="card__actions">
+										<!-- Если добавлено в корзину то добавляем класс "--active" и подставляем кол. товара в корзине -->
+										<button class="btn btn_primary btn_arrow btn-cart --active">
+											<span class="btn-cart__default">Добавить в корзину</span>
+											<span class="btn-cart__active">Добавлено в корзину <span>25</span></span>
+										</button>
+
+										<!-- Если добавлено в избранное то добавляем класс "--active" -->
+										<button class="btn-favourite">
+											<i class="btn-favourite__icon"></i>
+											<span class="btn-favourite__default">Добавить в избранное</span>
+											<span class="btn-favourite__active">Удалить из избранного</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card__inner">
+									<a href="#" class="card__thumb">
+										<img class="card__thumb__img lazy" data-src="img/ref__card-thumb.jpg" alt="null" src="img/lazy-loader.svg">
+									</a>
+									<a href="#" class="card__title">
+										<div class="card__title__text">Аккумулятор 12V 12Ah клеммы 6.3mm</div>
+									</a>
+									<div class="card__price">
+										<div class="card__price-value">
+											15 599 ₽
+										</div>
+										<div class="card__price-text">
+											В наличии
+										</div>
+									</div>
+									<div class="card__data">
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												Производитель:
+											</div>
+											<div class="card__data-item__value">
+												<b>DREHZAHL - UBERWACHUNG</b>
+											</div>
+										</div>
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												Применяемость:
+											</div>
+											<div class="card__data-item__value">
+												Kone, Canny
+											</div>
+										</div>
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												ID товара:
+											</div>
+											<div class="card__data-item__value">
+												OTH2410056
+											</div>
+										</div>
+									</div>
+									<div class="card__counter">
+										<div class="input-counter">
+											<button class="input-counter__dec"></button>
+											<label class="input-counter__label">
+												<input class="input-counter__input" type="text"/>
+											</label>
+											<button class="input-counter__inc"></button>
+										</div>
+									</div>
+									<div class="card__actions">
+										<!-- Если добавлено в корзину то добавляем класс "--active" и подставляем кол. товара в корзине -->
+										<button class="btn btn_primary btn_arrow btn-cart">
+											<span class="btn-cart__default">Добавить в корзину</span>
+											<span class="btn-cart__active">Добавлено в корзину <span>25</span></span>
+										</button>
+
+										<!-- Если добавлено в избранное то добавляем класс "--active" -->
+										<button class="btn-favourite --active">
+											<i class="btn-favourite__icon"></i>
+											<span class="btn-favourite__default">Добавить в избранное</span>
+											<span class="btn-favourite__active">Удалить из избранного</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card__inner">
+									<a href="#" class="card__thumb">
+										<img class="card__thumb__img lazy" data-src="img/ref__card-thumb.jpg" alt="null" src="img/lazy-loader.svg">
+									</a>
+									<a href="#" class="card__title">
+										<div class="card__title__text">Аккумулятор 12V 12Ah клеммы 6.3mm</div>
+									</a>
+									<div class="card__price --disabled">
+										<div class="card__price-value">
+											Цена по запросу
+										</div>
+										<div class="card__price-text">
+											Под заказ
+										</div>
+									</div>
+									<div class="card__data">
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												Производитель:
+											</div>
+											<div class="card__data-item__value">
+												<b>DREHZAHL - UBERWACHUNG</b>
+											</div>
+										</div>
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												Применяемость:
+											</div>
+											<div class="card__data-item__value">
+												Kone, Canny
+											</div>
+										</div>
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												ID товара:
+											</div>
+											<div class="card__data-item__value">
+												OTH2410056
+											</div>
+										</div>
+									</div>
+									<div class="card__counter">
+										<div class="input-counter">
+											<button class="input-counter__dec"></button>
+											<label class="input-counter__label">
+												<input class="input-counter__input" type="text" value="25"/>
+											</label>
+											<button class="input-counter__inc"></button>
+										</div>
+									</div>
+									<div class="card__actions">
+										<!-- Если добавлено в корзину то добавляем класс "--active" и подставляем кол. товара в корзине -->
+										<button class="btn btn_primary btn_arrow btn-cart --active">
+											<span class="btn-cart__default">Добавить в корзину</span>
+											<span class="btn-cart__active">Добавлено в корзину <span>25</span></span>
+										</button>
+
+										<!-- Если добавлено в избранное то добавляем класс "--active" -->
+										<button class="btn-favourite">
+											<i class="btn-favourite__icon"></i>
+											<span class="btn-favourite__default">Добавить в избранное</span>
+											<span class="btn-favourite__active">Удалить из избранного</span>
+										</button>
+									</div>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card__inner">
+									<a href="#" class="card__thumb">
+										<img class="card__thumb__img lazy" data-src="img/ref__card-thumb.jpg" alt="null" src="img/lazy-loader.svg">
+									</a>
+									<a href="#" class="card__title">
+										<div class="card__title__text">Аккумулятор 12V 12Ah клеммы 6.3mm</div>
+									</a>
+									<div class="card__price --disabled">
+										<div class="card__price-value">
+											Цена по запросу
+										</div>
+										<div class="card__price-text">
+											Под заказ
+										</div>
+									</div>
+									<div class="card__data">
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												Производитель:
+											</div>
+											<div class="card__data-item__value">
+												<b>DREHZAHL - UBERWACHUNG</b>
+											</div>
+										</div>
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												Применяемость:
+											</div>
+											<div class="card__data-item__value">
+												Kone, Canny
+											</div>
+										</div>
+										<div class="card__data-item">
+											<div class="card__data-item__title">
+												ID товара:
+											</div>
+											<div class="card__data-item__value">
+												OTH2410056
+											</div>
+										</div>
+									</div>
+									<div class="card__counter">
+										<div class="input-counter">
+											<button class="input-counter__dec"></button>
+											<label class="input-counter__label">
+												<input class="input-counter__input" type="text" value="25"/>
+											</label>
+											<button class="input-counter__inc"></button>
+										</div>
+									</div>
+									<div class="card__actions">
+										<!-- Если добавлено в корзину то добавляем класс "--active" и подставляем кол. товара в корзине -->
+										<button class="btn btn_primary btn_arrow btn-cart --active">
+											<span class="btn-cart__default">Добавить в корзину</span>
+											<span class="btn-cart__active">Добавлено в корзину <span>25</span></span>
+										</button>
+
+										<!-- Если добавлено в избранное то добавляем класс "--active" -->
+										<button class="btn-favourite">
+											<i class="btn-favourite__icon"></i>
+											<span class="btn-favourite__default">Добавить в избранное</span>
+											<span class="btn-favourite__active">Удалить из избранного</span>
+										</button>
+									</div>
+								</div>
 							</div>
 						</div>
 						<div class="page-catalog__bottom">

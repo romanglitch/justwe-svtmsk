@@ -168,6 +168,53 @@ $(function() {
                 })
             }
         },
+        glInputCounter: () => {
+            let elements = {
+                $counterRoot: $('.input-counter'),
+                $counterInput: $('.input-counter__input'),
+                buttons: {
+                    $increment: $('.input-counter__inc'),
+                    $decrement: $('.input-counter__dec')
+                }
+            }
+
+            let resetValues = ($element) => {
+                if (!$element.val()) {
+                    $element.val(1)
+                    $element.trigger('change')
+                }
+
+                return false
+            }
+
+            elements.$counterInput.each(function () {
+                resetValues($(this))
+            })
+
+            elements.$counterInput.on('blur', function () {
+                resetValues($(this))
+            })
+
+            elements.$counterInput.on('focus', function () {
+                $(this).trigger('select')
+            })
+
+            elements.buttons.$decrement.on('click', function () {
+                let $input = $(this).parent().find('input');
+                let count = parseInt($input.val()) - 1;
+                count = count < 1 ? 1 : count;
+                $input.val(count);
+                $input.trigger('change')
+                return false;
+            })
+
+            elements.buttons.$increment.on('click', function () {
+                let $input = $(this).parent().find('input');
+                $input.val(parseInt($input.val()) + 1);
+                $input.trigger('change')
+                return false;
+            })
+        },
 
         // Vendor components
         glInitMasks: () => {
@@ -263,6 +310,9 @@ $(function() {
 
     /* Init app component [Elevator section animations] */
     GL_APP.components.glElevatorAnimations()
+
+    /* Init app component [Input counter | Increment & Decrement buttons] */
+    GL_APP.components.glInputCounter()
 
     /* Init component [LazyLoad] */
     GL_APP.components.glInitLazyLoad()

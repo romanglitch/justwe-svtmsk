@@ -48,7 +48,8 @@ $(function() {
         swiper: {
             heroCarousel: '.hero-carousel',
             spvCarousel: '.spv-carousel',
-            offersCarousel: '.offers-carousel'
+            offersCarousel: '.offers-carousel',
+            catalogCarousel: '.catalog-carousel'
         }
     }
 
@@ -284,7 +285,7 @@ $(function() {
 
             GL_APP.instances.swiper.spvCarousel = new Swiper(GL_APP.elements.swiper.spvCarousel , {
                 slidesPerView: 'auto',
-                spaceBetween: 15,
+                spaceBetween: 20,
                 navigation: {
                     nextEl: '.swiper-button-next.spv-carousel-next',
                     prevEl: '.swiper-button-prev.spv-carousel-prev',
@@ -295,6 +296,16 @@ $(function() {
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
+                },
+            })
+
+            GL_APP.instances.swiper.catalogCarousel = new Swiper(GL_APP.elements.swiper.catalogCarousel , {
+                slidesPerView: 'auto',
+                spaceBetween: 20,
+                autoHeight: true,
+                navigation: {
+                    nextEl: '.swiper-button-next.catalog-carousel-next',
+                    prevEl: '.swiper-button-prev.catalog-carousel-prev',
                 },
             })
         },

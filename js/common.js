@@ -17,6 +17,12 @@ $(function() {
                 animationEffect: 'zoom-in-out',
                 touch: false,
                 autoFocus: false
+            },
+            galleryOptions : {
+                transitionDuration: 366,
+                animationEffect: 'zoom-in-out',
+                backFocus: false,
+                hash: false
             }
         }
     }
@@ -36,11 +42,14 @@ $(function() {
         $fancyboxModals: $('.js-modals'),
         $fancyboxGallery: $('[data-fancybox]'),
         maskInputs: {
-            $phone: $('.js-phone-mask')
+            $phone: $('.js-phone-mask'),
+            $number: $('.js-number-mask')
         },
         swiper: {
             heroCarousel: '.hero-carousel',
-            spvCarousel: '.spv-carousel'
+            spvCarousel: '.spv-carousel',
+            offersCarousel: '.offers-carousel',
+            catalogCarousel: '.catalog-carousel'
         }
     }
 
@@ -54,7 +63,6 @@ $(function() {
                 rect.left >= 0 &&
                 rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
                 rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-
             )
         },
         scrollToggleInit: () => {
@@ -162,6 +170,46 @@ $(function() {
                 })
             }
         },
+        glInputCounter: () => {
+            let elements = {
+                $counterRoot: $('.input-counter'),
+                $counterInput: $('.input-counter__input'),
+                buttons: {
+                    $increment: $('.input-counter__inc'),
+                    $decrement: $('.input-counter__dec')
+                }
+            }
+
+            let setCountForButton = ($inputElement) => {
+                $inputElement.closest('.card__inner').find('.btn-cart__active span').text($inputElement.val())
+            }
+
+            elements.$counterInput.each(function () {
+                setCountForButton($(this))
+            })
+
+            elements.$counterInput.on('change', function () {
+                setCountForButton($(this))
+            })
+
+            elements.buttons.$decrement.on('click', function () {
+                let $input = $(this).parent().find('input');
+                let count = parseInt($input.val()) - 1;
+                count = count < 1 ? 1 : count;
+                $input.val(count);
+                $input.trigger('change')
+                setCountForButton($input)
+                return false;
+            })
+
+            elements.buttons.$increment.on('click', function () {
+                let $input = $(this).parent().find('input');
+                $input.val(parseInt($input.val()) + 1);
+                setCountForButton($input)
+                $input.trigger('change')
+                return false;
+            })
+        },
 
         // Vendor components
         glInitMasks: () => {
@@ -173,6 +221,14 @@ $(function() {
                         validator: "[4,9]",
                     }
                 }
+            })
+
+            GL_APP.elements.maskInputs.$number.inputmask({
+                alias: 'numeric',
+                allowMinus: false,
+                min: 1,
+                max: 999999,
+                rightAlign: false,
             })
         },
         glInitLazyLoad: () => {
@@ -229,22 +285,33 @@ $(function() {
 
             GL_APP.instances.swiper.spvCarousel = new Swiper(GL_APP.elements.swiper.spvCarousel , {
                 slidesPerView: 'auto',
-                spaceBetween: 15,
+                spaceBetween: 20,
                 navigation: {
                     nextEl: '.swiper-button-next.spv-carousel-next',
                     prevEl: '.swiper-button-prev.spv-carousel-prev',
                 },
             })
+
+            GL_APP.instances.swiper.offersCarousel = new Swiper(GL_APP.elements.swiper.offersCarousel , {
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            })
+
+            GL_APP.instances.swiper.catalogCarousel = new Swiper(GL_APP.elements.swiper.catalogCarousel , {
+                slidesPerView: 'auto',
+                spaceBetween: 20,
+                autoHeight: true,
+                navigation: {
+                    nextEl: '.swiper-button-next.catalog-carousel-next',
+                    prevEl: '.swiper-button-prev.catalog-carousel-prev',
+                },
+            })
         },
         glInitFancyBox: () => {
             GL_APP.elements.$fancyboxModals.fancybox(GL_APP.variables.fancyBox.modalsOptions)
-
-            GL_APP.elements.$fancyboxGallery.fancybox({
-                transitionDuration: 366,
-                animationEffect: 'zoom-in-out',
-                backFocus: false,
-                hash: false
-            })
+            GL_APP.elements.$fancyboxGallery.fancybox(GL_APP.variables.fancyBox.galleryOptions)
         }
     }
 
@@ -256,6 +323,9 @@ $(function() {
 
     /* Init app component [Elevator section animations] */
     GL_APP.components.glElevatorAnimations()
+
+    /* Init app component [Input counter | Increment & Decrement buttons] */
+    GL_APP.components.glInputCounter()
 
     /* Init component [LazyLoad] */
     GL_APP.components.glInitLazyLoad()

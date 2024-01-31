@@ -10,13 +10,17 @@
     /* Sizes */
     --aside-width: calc(14.6vw + var(--sb-width));
     --padding-def: 5.21vw;
+    --padding-md: 3.39vw;
     --padding-sm: 2.60vw;
+    --padding-xs: 1.04vw;
+    --ui-height: 2.34vw;
 
     /* Colors */
     --body-bg-color: #fff;
     --body-text-color: #3B505B;
     --placeholder-color: #3B505B;
     --dark: #3B505B;
+    --light: #F6F6F6;
     --light-gray: #99AFBB;
     --gray: #BCBCBC;
     --primary: #00A1B7;

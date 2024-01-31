@@ -663,11 +663,6 @@ a {
     display: grid;
     -ms-grid-columns: (1fr)[2];
     grid-template-columns: repeat(2, 1fr);
-    height: 42.5vw;
-}
-
-.portfolio__row.portfolio__row_last {
-    height: 32.29vw;
 }
 
 .portfolio__gallery-item {
@@ -1800,9 +1795,16 @@ a {
     grid-gap: var(--padding-xs);
 }
 
+.section-filter__col:first-child {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
 .filter-form {
     display: grid;
     grid-gap: var(--padding-xs);
+    width: 100%;
 }
 
 .checkbox-tag {

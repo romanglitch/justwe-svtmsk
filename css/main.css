@@ -2007,10 +2007,6 @@ a {
     margin-bottom: var(--padding-xs);
 }
 
-.card__counter {
-    margin-bottom: var(--padding-xs);
-}
-
 .card__data-item:last-child {
     margin-top: calc(var(--padding-xs) * -1);
     height: 0;
@@ -2023,6 +2019,10 @@ a {
     height: 0;
     margin-bottom: 0;
     transition: all 200ms ease-in-out;
+    display: grid;
+    grid-template-columns: 1fr 1.56vw;
+    grid-gap: 0.52vw;
+    opacity: 0;
 }
 
 .card:hover .card__data-item:last-child {
@@ -2033,6 +2033,8 @@ a {
 .card:hover .card__counter {
     margin-bottom: var(--padding-xs);
     height: 3.23vw;
+    opacity: 1;
+    overflow: visible;
 }
 
 .card:hover .card__inner {
@@ -2043,11 +2045,10 @@ a {
 .input-counter {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    max-width: max-content;
+    justify-content: space-between;
     border: 4px solid #F2F2F2;
     border-radius: 5.21vw;
-    padding: 0.52vw 2.60vw;
+    padding: 0.52vw 2.6vw;
 }
 
 .input-counter__label {
@@ -2174,9 +2175,10 @@ a {
 }
 
 .btn.btn-cart.--active {
-    border-color: rgb(0 161 183 / 50%);
-    color: var(--primary);
-    background: #fff;
+    border-color: rgb(127 208 219);
+    color: #fff;
+    background: rgb(0 161 183 / 50%);
+    pointer-events: none;
 }
 
 .btn.btn-cart.--active .btn-cart__default {
@@ -2195,8 +2197,8 @@ a {
 }
 
 .btn-cart__active span {
-    background: var(--primary);
-    color: #fff;
+    background: #fff;
+    color: var(--dark);
     border-radius: 0.63vw;
     padding: 0.21vw 0.36vw;
     font-size: 0.875rem;
@@ -2227,4 +2229,65 @@ a {
 
 .card:hover {
     z-index: 2;
+}
+
+.btn-remove {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    display: none;
+}
+
+.btn-remove__tooltip {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin: auto;
+    transform: translate(-50%, calc(-100% + 0.82vw));
+    font-size: 10px;
+    color: #fff;
+    background: var(--dark);
+    white-space: nowrap;
+    width: max-content;
+    padding: 0.42vw;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 200ms ease-in-out;
+}
+
+.btn-remove__tooltip:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-width: 0.52vw 0.47vw 0 0.47vw;
+    border-color: var(--dark) transparent transparent transparent;
+    border-style: solid;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.4vw;
+    margin: auto;
+    z-index: 1;
+}
+
+.btn-remove__icon {
+    background: url('data:image/svg+xml,<svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.5376 3.17366V2.08683C14.5376 1.48857 14.0108 1 13.3656 1H8.65592C8.01075 1 7.48387 1.48857 7.48387 2.08683V3.17366M15.1183 9.72455V21.1811M11 9.72455V21.1811M6.88172 9.72455V21.1811M3.93549 25H18.0645C19.043 25 19.828 24.2622 19.828 23.3648V6.44412H2.17205V23.3648C2.17205 24.2721 2.96775 25 3.93549 25ZM2.17205 3.17366H19.828C20.4731 3.17366 21 3.66224 21 4.26049V6.44412H1V4.26049C1 3.66224 1.52688 3.17366 2.17205 3.17366Z" stroke="%2300A1B7" stroke-miterlimit="10"/></svg>') center/contain no-repeat;
+    width: 1.56vw;
+    height: 1.35vw;
+    display: block;
+    transition: all 200ms ease-in-out;
+}
+
+.btn-remove:hover .btn-remove__tooltip {
+    opacity: 1;
+}
+
+.btn-remove:hover .btn-remove__icon {
+    background: url('data:image/svg+xml,<svg width="22" height="26" viewBox="0 0 22 26" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.93549 25H18.0645C19.043 25 19.828 24.2622 19.828 23.3648V6.44412H2.17204V23.3648C2.17204 24.2721 2.96775 25 3.93549 25Z" fill="%2300A1B7" fill-opacity="0.15"/><path d="M2.17204 3.17366H19.828C20.4731 3.17366 21 3.66224 21 4.26049V6.44412H1V4.26049C1 3.66224 1.52688 3.17366 2.17204 3.17366Z" fill="%2300A1B7" fill-opacity="0.15"/><path d="M14.5376 3.17366V2.08683C14.5376 1.48857 14.0108 1 13.3656 1H8.65592C8.01075 1 7.48387 1.48857 7.48387 2.08683V3.17366" fill="%2300A1B7" fill-opacity="0.15"/><path d="M14.5376 3.17366V2.08683C14.5376 1.48857 14.0108 1 13.3656 1H8.65592C8.01075 1 7.48387 1.48857 7.48387 2.08683V3.17366M15.1183 9.72455V21.1811M11 9.72455V21.1811M6.88172 9.72455V21.1811M3.93549 25H18.0645C19.043 25 19.828 24.2622 19.828 23.3648V6.44412H2.17205V23.3648C2.17205 24.2721 2.96775 25 3.93549 25ZM2.17205 3.17366H19.828C20.4731 3.17366 21 3.66224 21 4.26049V6.44412H1V4.26049C1 3.66224 1.52688 3.17366 2.17205 3.17366Z" stroke="%2300A1B7" stroke-miterlimit="10"/></svg>') center/contain no-repeat;
+}
+
+.btn-remove.--active {
+    display: block;
 }

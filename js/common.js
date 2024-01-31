@@ -42,7 +42,8 @@ $(function() {
         $fancyboxModals: $('.js-modals'),
         $fancyboxGallery: $('[data-fancybox]'),
         maskInputs: {
-            $phone: $('.js-phone-mask')
+            $phone: $('.js-phone-mask'),
+            $number: $('.js-number-mask')
         },
         swiper: {
             heroCarousel: '.hero-carousel',
@@ -178,27 +179,16 @@ $(function() {
                 }
             }
 
-            let resetValues = ($element) => {
-                if (!$element.val() || $element.val() === 0) {
-                    $element.val(1)
-                    $element.trigger('change')
-                }
-
-                return false
+            let setCountForButton = ($inputElement) => {
+                $inputElement.closest('.card__inner').find('.btn-cart__active span').text($inputElement.val())
             }
 
             elements.$counterInput.each(function () {
-                resetValues($(this))
-                $(this).closest('.card__inner').find('.btn-cart__active span').text($(this).val())
+                setCountForButton($(this))
             })
 
-            elements.$counterInput.on('focus', function () {
-                $(this).trigger('select')
-            })
-
-            elements.$counterInput.on('blur', function () {
-                resetValues($(this))
-                $(this).closest('.card__inner').find('.btn-cart__active span').text($(this).val())
+            elements.$counterInput.on('change', function () {
+                setCountForButton($(this))
             })
 
             elements.buttons.$decrement.on('click', function () {
@@ -207,14 +197,14 @@ $(function() {
                 count = count < 1 ? 1 : count;
                 $input.val(count);
                 $input.trigger('change')
-                $(this).closest('.card__inner').find('.btn-cart__active span').text(count)
+                setCountForButton($input)
                 return false;
             })
 
             elements.buttons.$increment.on('click', function () {
                 let $input = $(this).parent().find('input');
                 $input.val(parseInt($input.val()) + 1);
-                $(this).closest('.card__inner').find('.btn-cart__active span').text($input.val())
+                setCountForButton($input)
                 $input.trigger('change')
                 return false;
             })
@@ -230,6 +220,14 @@ $(function() {
                         validator: "[4,9]",
                     }
                 }
+            })
+
+            GL_APP.elements.maskInputs.$number.inputmask({
+                alias: 'numeric',
+                allowMinus: false,
+                min: 1,
+                max: 999999,
+                rightAlign: false,
             })
         },
         glInitLazyLoad: () => {

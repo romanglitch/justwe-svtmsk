@@ -1400,7 +1400,7 @@ a {
 }
 
 .page-header {
-    padding: var(--padding-sm) var(--padding-sm) var(--padding-sm) var(--padding-def);
+    padding: var(--padding-sm) var(--padding-def) var(--padding-sm) var(--padding-def);
     display: grid;
     grid-gap: var(--padding-sm);
 }
@@ -1411,6 +1411,10 @@ a {
     font-size: 4.375rem;
     line-height: 4.75rem;
     color: var(--primary);
+}
+
+.page-header__heading-text span {
+    color: var(--dark);
 }
 
 .page-header__heading {

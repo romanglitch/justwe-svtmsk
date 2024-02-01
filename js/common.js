@@ -153,7 +153,9 @@ $(function() {
                 let stickyTop = $elevatorElement.offset().top
                 let stickyCalc = stickyTop + Number($elevatorElement.css('--animation-start-px'))
 
-                $(window).on('load scroll resize', function (e) {
+                $(window).on('scroll', () => stickyTop = $elevatorElement.offset().top)
+
+                $(window).on('load scroll resize', function () {
                     let windowTop = $(window).scrollTop();
 
                     if (windowTop >= stickyTop) {

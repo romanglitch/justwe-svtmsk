@@ -28,7 +28,8 @@
 				</a>
 				<button class="app-mobile-header__menu-btn js-modals" data-fancybox="#app-aside"></button>
 			</header>
-			<aside class="app-aside" id="app-aside">
+			<!-- На данной странице включаем прозрачность сайдбара! -->
+			<aside class="app-aside" id="app-aside" data-aside-transparent>
 				<div class="app-aside__bg">
 					<div class="app-aside__inner">
 						<a href="/" class="app-aside__logo">
@@ -102,6 +103,60 @@
 				</div>
 			</aside>
 			<main class="app-main">
+				<section class="app-section section-hero section-hero_only-assets">
+					<div class="section-hero__assets">
+						<div class="section-hero__assets-layer hero-asset-1 lazy" data-bg="img/ref__elevator-border.png"></div>
+					</div>
+				</section>
+
+				<section class="app-section section-page-header --aside-offset">
+					<div class="page-header">
+						<div class="page-header__heading">
+							<div class="page-header__heading-text">
+								НУЖЕН ЛИФТ ИЛИ ЭСКАЛАТОР,
+								<br>ЗАПЧАСТИ, МОНТАЖ <span>— ВАМ СЮДА!</span>
+							</div>
+						</div>
+						<div class="page-header__content">
+							<p class="page-header__text">
+								ООО «СВТ» — энергично развивающаяся компания, работающая в сфере вертикального транспорта.
+								<br><br>Сотрудники нашей компании обладают серьезным опытом работы в сфере поставок и монтажа лифтового и эскалаторного оборудования. Это позволяет нам быстро и эффективно реагировать на запросы наших заказчиков. Если вы хотите получить современное и надежное эскалаторное и лифтовое оборудование, качественный монтаж по разумной цене, а также запчасти для Ваших лифтов и эскалаторов — мы будем рады предложить Вам наши услуги.
+							</p>
+							<div class="page-header__tags">
+								<div class="tags">
+									<a href="#" class="tag-item">
+										Пассажирские лифты
+									</a>
+									<a href="#" class="tag-item">
+										Больничные лифты
+									</a>
+									<a href="#" class="tag-item">
+										Малогрузовые лифты
+									</a>
+									<a href="#" class="tag-item">
+										Грузовые лифты
+									</a>
+									<a href="#" class="tag-item">
+										Автомобильные лифты
+									</a>
+									<a href="#" class="tag-item">
+										Панорамные лифты
+									</a>
+									<a href="#" class="tag-item">
+										Коттеджные лифты
+									</a>
+									<a href="#" class="tag-item">
+										Гидравлические лифты
+									</a>
+									<a href="#" class="tag-item">
+										Подъемники для инвалидов
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
 				<section class="app-section section-portfolio --aside-offset">
 					<div class="portfolio">
 						<div class="portfolio__row">
@@ -155,26 +210,6 @@
 								</a>
 							</div>
 						</div>
-						<div class="portfolio__row">
-							<div class="portfolio__col">
-								<a href="img/ref__portfolio-gallery-2.jpg" class="portfolio__gallery-item" data-fancybox="portfolio-gallery">
-									<img class="portfolio__gallery-image lazy" data-src="img/ref__portfolio-gallery-2.jpg" alt="null" src="img/lazy-placeholder.png">
-								</a>
-							</div>
-							<div class="portfolio__col">
-								<div class="portfolio__gallery-grid">
-									<a href="img/ref__portfolio-gallery-3.jpg" class="portfolio__gallery-item" data-fancybox="portfolio-gallery">
-										<img class="portfolio__gallery-image lazy" data-src="img/ref__portfolio-gallery-3.jpg" alt="null" src="img/lazy-placeholder.png">
-									</a>
-									<a href="img/ref__portfolio-gallery-4.jpg" class="portfolio__gallery-item" data-fancybox="portfolio-gallery">
-										<img class="portfolio__gallery-image lazy" data-src="img/ref__portfolio-gallery-4.jpg" alt="null" src="img/lazy-placeholder.png">
-									</a>
-									<a href="img/ref__portfolio-gallery-5.jpg" class="portfolio__gallery-item" data-fancybox="portfolio-gallery">
-										<img class="portfolio__gallery-image lazy" data-src="img/ref__portfolio-gallery-5.jpg" alt="null" src="img/lazy-placeholder.png">
-									</a>
-								</div>
-							</div>
-						</div>
 					</div>
 				</section>
 
@@ -196,30 +231,39 @@
 					</div>
 				</section>
 
-				<section class="app-section section-catalog --aside-offset">
-					<div class="catalog">
-						<div class="catalog-block-link lazy" data-bg="img/ref__catalog-block-image-1.jpg">
-							<div class="catalog-block-link__content">
-								<img class="catalog-block-link__icon lazy" data-src="img/ref_catalog-block-icon-1.svg" alt="null" src="img/lazy-loader.svg">
-								<div class="catalog-block-link__title">
-									ЛИФТЫ,
-									<br>ПОДЪЕМНИКИ
+				<section class="app-section section-elevator">
+					<div class="elevator-scene">
+						<div class="elevator">
+							<div class="elevator__bg">
+								<div class="elevator__content">
+									<div class="elevator__content-grid">
+										<div class="elevator__content-col">
+											<div class="elevator__title">
+												НАШИ
+												<br>КЛИЕНТЫ
+											</div>
+										</div>
+										<div class="elevator__content-col">
+											<img class="elevator__image lazy" data-src="img/ref__elevator_image-1.png" alt="null" src="img/lazy-placeholder.png">
+										</div>
+									</div>
 								</div>
-								<a href="#" class="btn btn_border_wh btn_arrow">
-									<span>Смотреть каталог</span>
-								</a>
 							</div>
-						</div>
-						<div class="catalog-block-link lazy" data-bg="img/ref__catalog-block-image-2.jpg">
-							<div class="catalog-block-link__content">
-								<img class="catalog-block-link__icon lazy" data-src="img/ref_catalog-block-icon-2.svg" alt="null" src="img/lazy-loader.svg">
-								<div class="catalog-block-link__title">
-									ЭСКАЛАТОРЫ,
-									<br>ТРАВОЛАТОРЫ
+							<div class="elevator__border"></div>
+							<div class="elevator__doors">
+								<div class="elevator__doors-item">
+									<div class="elevator__doors-content">
+										<div class="elevator__title">
+											НАШИ
+											<br>ПОСТАВЩИКИ
+										</div>
+									</div>
 								</div>
-								<a href="#" class="btn btn_border_wh btn_arrow">
-									<span>Смотреть каталог</span>
-								</a>
+								<div class="elevator__doors-item">
+									<div class="elevator__doors-content">
+										<img class="elevator__image lazy" data-src="img/ref__elevator_image-2.png" alt="null" src="img/lazy-placeholder.png">
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -273,6 +317,35 @@
 										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-11.png" alt="null" src="img/lazy-placeholder.png">
 									</a>
 								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="app-section section-catalog --aside-offset">
+					<div class="catalog">
+						<div class="catalog-block-link lazy" data-bg="img/ref__catalog-block-image-1.jpg">
+							<div class="catalog-block-link__content">
+								<img class="catalog-block-link__icon lazy" data-src="img/ref_catalog-block-icon-1.svg" alt="null" src="img/lazy-loader.svg">
+								<div class="catalog-block-link__title">
+									ЛИФТЫ,
+									<br>ПОДЪЕМНИКИ
+								</div>
+								<a href="#" class="btn btn_border_wh btn_arrow">
+									<span>Смотреть каталог</span>
+								</a>
+							</div>
+						</div>
+						<div class="catalog-block-link lazy" data-bg="img/ref__catalog-block-image-2.jpg">
+							<div class="catalog-block-link__content">
+								<img class="catalog-block-link__icon lazy" data-src="img/ref_catalog-block-icon-2.svg" alt="null" src="img/lazy-loader.svg">
+								<div class="catalog-block-link__title">
+									ЭСКАЛАТОРЫ,
+									<br>ТРАВОЛАТОРЫ
+								</div>
+								<a href="#" class="btn btn_border_wh btn_arrow">
+									<span>Смотреть каталог</span>
+								</a>
 							</div>
 						</div>
 					</div>

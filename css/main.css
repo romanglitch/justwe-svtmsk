@@ -2867,3 +2867,7 @@ a {
     bottom: -0.52vw;
     transform: rotate(180deg);
 }
+
+.section-page-header + .section-page-catalog {
+    padding-top: 0;
+}

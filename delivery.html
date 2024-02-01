@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="referrer" content="origin">
+		<meta name="HandheldFriendly" content="true">
+
+		<title>[SVT - Frontend]</title>
+
+		<!-- vendor styles -->
+		<link href="css/vendor/normalize.min.css" rel="stylesheet">
+		<link href="css/vendor/swiper-bundle.min.css" rel="stylesheet">
+		<link href="css/vendor/select2.min.css" rel="stylesheet">
+		<link href="css/vendor/jquery.fancybox.min.css" rel="stylesheet">
+
+		<!-- main styles -->
+		<link href="css/main.css" rel="stylesheet">
+		<link href="css/responsive.css" rel="stylesheet">
+		<link href="css/dev.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="app">
+			<header class="app-mobile-header">
+				<a href="/" class="app-mobile-header__logo">
+					<img class="app-mobile-header__logo-img" alt="СВТ - СОВРЕМЕННЫЕ ВЕРТИКАЛЬНЫЕ ТЕХНОЛОГИИ" src="img/logo.svg">
+				</a>
+				<button class="app-mobile-header__menu-btn js-modals" data-fancybox="#app-aside"></button>
+			</header>
+			<aside class="app-aside" id="app-aside">
+				<div class="app-aside__bg">
+					<div class="app-aside__inner">
+						<a href="/" class="app-aside__logo">
+							<img class="app-aside__logo-img" alt="СВТ - СОВРЕМЕННЫЕ ВЕРТИКАЛЬНЫЕ ТЕХНОЛОГИИ" src="img/logo.svg">
+						</a>
+						<nav class="app-aside__nav">
+							<a href="#" class="app-aside__nav-item">
+								Лифты
+							</a>
+							<a href="#" class="app-aside__nav-item">
+								Эскалаторы и
+								<br>травалаторы
+							</a>
+							<a href="#" class="app-aside__nav-item">
+								Услуги
+							</a>
+							<a href="#" class="app-aside__nav-item">
+								Запчасти
+							</a>
+							<a href="#" class="app-aside__nav-item">
+								Наши работы
+							</a>
+							<a href="#" class="app-aside__nav-item">
+								О компании
+							</a>
+							<a href="#" class="app-aside__nav-item">
+								Доставка и оплата
+							</a>
+							<a href="#" class="app-aside__nav-item">
+								Контакты
+							</a>
+							<a href="#" class="app-aside__nav-item">
+								<i class="cart-icon"><span>22</span></i>
+								Корзина
+							</a>
+							<a href="#" class="app-aside__nav-item">
+								<i class="fav-icon"></i>
+								Избранное
+							</a>
+						</nav>
+						<div class="app-aside__divider"></div>
+						<div class="app-aside__contacts">
+							<a href="#" class="app-aside__contacts-phone">
+								(495) <b>724 14 33</b>
+							</a>
+							<a href="#" class="app-aside__contacts-link js-modals" data-src="#modal-callback">
+								Обратный звонок
+							</a>
+						</div>
+						<div class="app-aside__buttons">
+							<a href="#" class="btn btn_border_wh js-modals" data-src="#modal-offer">
+								Отправить заявку
+							</a>
+						</div>
+						<div class="app-aside__bottom">
+							<div class="app-aside__bottom-text">
+								<b>© 2024 «SVT групп»</b>
+							</div>
+							<div class="app-aside__bottom-text">
+								Использовании информации,
+								<br>размещенной на сайте, запрещено.
+							</div>
+							<a href="#" class="app-aside__bottom-link">
+								Политика безопасности
+							</a>
+							<a href="#" class="app-aside__bottom-link">
+								Карта сайта
+							</a>
+						</div>
+					</div>
+				</div>
+			</aside>
+			<main class="app-main">
+				<section class="app-section section-page-header --aside-offset">
+					<div class="page-header">
+						<div class="page-header__heading">
+							<div class="page-header__heading-text">
+								ОПЛАТА И ДОСТАВКА
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="app-section section-page-delivery --aside-offset">
+					<div class="page-delivery">
+						<div class="page-delivery__row">
+							<div class="page-delivery__content">
+								<div class="page-delivery__title">
+									ДОСТАВКА
+								</div>
+								<div class="page-delivery__futures">
+									<div class="page-delivery__future-item">
+										<img class="page-delivery__future-item__icon lazy" data-src="img/ref__delivery-icon-1.svg" alt="null" src="img/lazy-loader.svg">
+										<div class="page-delivery__future-item__text">
+											доставка транспортными
+											<br>компаниями
+										</div>
+									</div>
+									<div class="page-delivery__future-item">
+										<img class="page-delivery__future-item__icon lazy" data-src="img/ref__delivery-icon-2.svg" alt="null" src="img/lazy-loader.svg">
+										<div class="page-delivery__future-item__text">
+											самовывоз со склада
+										</div>
+									</div>
+								</div>
+								<p class="page-delivery__description">
+									Мы понимаем, что ваше время ценно, поэтому стремимся обеспечить оперативность и сохранность вашего заказа.
+									<br><br>Адрес: <b>123060, РФ, Москва, ул. Расплетина, д. 12, корп.1</b>
+									<br><br>График работы: <b>Пн-Пт 09:00-18:00</b>
+								</p>
+							</div>
+							<div class="page-delivery__image lazy" data-bg="img/ref__delivery-image-1.jpg"></div>
+						</div>
+						<div class="page-delivery__row">
+							<div class="page-delivery__image lazy" data-bg="img/ref__delivery-image-2.jpg"></div>
+							<div class="page-delivery__content">
+								<div class="page-delivery__title">
+									ОПЛАТА
+								</div>
+								<div class="page-delivery__futures">
+									<div class="page-delivery__future-item">
+										<img class="page-delivery__future-item__icon lazy" data-src="img/ref__delivery-icon-3.svg" alt="null" src="img/lazy-loader.svg">
+										<div class="page-delivery__future-item__text">
+											Безналичная оплата по счету—
+											<br>удобно и безопасно!
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="app-section section-feedback --aside-offset">
+					<div class="feedback">
+						<div class="feedback__content">
+							<div class="feedback__title">
+								У ВАС ОСТАЛИСЬ
+								<br>ВОПРОСЫ?
+							</div>
+							<div class="feedback__desc">
+								Наш специалист свяжется с Вами в течение 15 минут и ответит на все Ваши вопросы.
+								<br><span>(Наши специалисты работают каждый день с 9:00 до 19:00)</span>
+							</div>
+							<form class="feedback-form">
+								<div class="feedback-form__inputs">
+									<label class="main-form-label">
+										<textarea class="main-form-textarea" placeholder="Текст Вашего обращения..."></textarea>
+									</label>
+								</div>
+								<div class="feedback-form__grd-inputs">
+									<label class="main-form-label">
+										<input class="main-form-input" type="text" placeholder="Ваше имя" autocomplete="off">
+									</label>
+									<label class="main-form-label">
+										<input class="main-form-input js-phone-mask" type="text" placeholder="+7 (___) ___-__-__" pattern="\d*" autocomplete="off">
+									</label>
+								</div>
+								<div class="feedback-form__bottom">
+									<label class="main-form-checkbox">
+										<input class="main-form-checkbox__input" type="checkbox">
+										<span class="main-form-checkbox__checkmark"></span>
+										<span class="main-form-checkbox__text">Согласие на обработку персональных данных</span>
+									</label>
+									<button class="btn btn_primary btn_arrow">
+										<span>Задать вопрос</span>
+									</button>
+								</div>
+							</form>
+						</div>
+						<div class="feedback__image lazy" data-bg="img/ref__section-feedback-image.jpg"></div>
+					</div>
+				</section>
+
+				<section class="app-section section-discount --aside-pd-left-offset">
+					<div class="discount">
+						<div class="discount__text">
+							<div class="discount__title">
+								СКИДКА 10%
+							</div>
+							<div class="discount__desc">
+								при оформлении заказа
+								<br>на нашем сайте
+							</div>
+						</div>
+						<div class="discount__arrow"></div>
+						<a href="#" class="btn btn_border_wh btn_arrow">
+							<span>Получить скидку</span>
+						</a>
+					</div>
+				</section>
+
+				<section class="app-section section-discount section-discount_bg --aside-pd-left-offset lazy" data-bg="img/ref__discount-section-bg.jpg">
+					<div class="discount-top">
+						<div class="discount-top__title">
+							<b>ПОРУЧНИ</b> ЗА 5 РАБОЧИХ ДНЕЙ
+						</div>
+					</div>
+					<div class="discount">
+						<div class="discount__text">
+							<div class="discount__title">
+								ОТ 3 190 <small>₽</small>
+							</div>
+							<div class="discount__desc">
+								за метр
+							</div>
+						</div>
+						<div class="discount__arrow"></div>
+						<a href="#" class="btn btn_border_wh btn_arrow">
+							<span>Получить скидку</span>
+						</a>
+					</div>
+				</section>
+
+				<section class="app-section section-spv --aside-offset">
+					<div class="spv">
+						<div class="spv__head">
+							<div class="app-section-title">
+								НАШИ СЕРТИФИКАТЫ
+							</div>
+							<div class="app-section-nav">
+								<div class="swiper-button-prev spv-carousel-prev"></div>
+								<div class="swiper-button-next spv-carousel-next"></div>
+							</div>
+						</div>
+						<div class="spv__body">
+							<div class="swiper spv-carousel spv-carousel_type_crt">
+								<div class="swiper-wrapper">
+									<a href="img/crt/crt-image-1.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-1.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/crt/crt-image-2.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-2.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/crt/crt-image-3.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-3.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/crt/crt-image-4.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-4.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/crt/crt-image-5.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-5.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/crt/crt-image-6.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-6.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/crt/crt-image-7.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-7.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/crt/crt-image-8.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-8.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/crt/crt-image-9.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-9.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/crt/crt-image-10.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-10.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+									<a href="img/crt/crt-image-11.png" class="swiper-slide spv-carousel_slide" data-fancybox="crt-gallery">
+										<img class="spv-carousel_image lazy" data-src="img/crt/crt-image-11.png" alt="null" src="img/lazy-placeholder.png">
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</main>
+		</div>
+
+		<!-- popups/modals -->
+		<div class="modals">
+			<div class="modal modal-callback" id="modal-callback">
+				<div class="modal__inner">
+					<div class="modal__title --phones-icon">
+						Заказать обратный звонок
+					</div>
+					<div class="modal__description">
+						Наш специалист свяжется с Вами в течение 15 минут и ответит на все Ваши вопросы.
+						<br><span>Ежедневно, с 9:00 до 19:00</span>
+					</div>
+					<form class="modal-form">
+						<div class="modal-form__grd-inputs">
+							<label class="main-form-label">
+								<input class="main-form-input" type="text" placeholder="Ваше имя" autocomplete="off">
+							</label>
+							<label class="main-form-label">
+								<input class="main-form-input js-phone-mask" type="text" placeholder="+7 (___) ___-__-__" pattern="\d*" autocomplete="off">
+							</label>
+						</div>
+						<div class="modal-form__bottom">
+							<label class="main-form-checkbox">
+								<input class="main-form-checkbox__input" type="checkbox">
+								<span class="main-form-checkbox__checkmark"></span>
+								<span class="main-form-checkbox__text">Согласие на обработку персональных данных</span>
+							</label>
+							<button class="btn btn_primary_bg btn_arrow">
+								<span>Отправить заявку</span>
+							</button>
+							<img class="modal-form__logo" alt="СВТ - СОВРЕМЕННЫЕ ВЕРТИКАЛЬНЫЕ ТЕХНОЛОГИИ" src="img/logo-dark.svg">
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="modal modal-offer" id="modal-offer">
+				<div class="modal__inner">
+					<div class="modal__title --phones-icon">
+						Отправить заявку
+					</div>
+					<div class="modal__description">
+						Наш специалист свяжется с Вами в течение 15 минут и ответит на все Ваши вопросы.
+						<br><span>Ежедневно, с 9:00 до 19:00</span>
+					</div>
+					<form class="modal-form">
+						<div class="modal-form__inputs">
+							<label class="main-form-label">
+								<textarea class="main-form-textarea" placeholder="Текст Вашего обращения..."></textarea>
+							</label>
+						</div>
+						<div class="modal-form__grd-inputs">
+							<label class="main-form-label">
+								<input class="main-form-input" type="text" placeholder="Ваше имя" autocomplete="off">
+							</label>
+							<label class="main-form-label">
+								<input class="main-form-input js-phone-mask" type="text" placeholder="+7 (___) ___-__-__" pattern="\d*" autocomplete="off">
+							</label>
+						</div>
+						<div class="modal-form__bottom">
+							<label class="main-form-checkbox">
+								<input class="main-form-checkbox__input" type="checkbox">
+								<span class="main-form-checkbox__checkmark"></span>
+								<span class="main-form-checkbox__text">Согласие на обработку персональных данных</span>
+							</label>
+							<button class="btn btn_primary_bg btn_arrow">
+								<span>Отправить заявку</span>
+							</button>
+							<img class="modal-form__logo" alt="СВТ - СОВРЕМЕННЫЕ ВЕРТИКАЛЬНЫЕ ТЕХНОЛОГИИ" src="img/logo-dark.svg">
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="modal modal-discount" id="modal-discount">
+				<div class="modal__inner">
+					<div class="modal__title --cur-icon">
+						Получите скидку 10%
+					</div>
+					<div class="modal__description">
+						Наш специалист свяжется с Вами в течение 15 минут и ответит на все Ваши вопросы.
+						<br><span>Ежедневно, с 9:00 до 19:00</span>
+					</div>
+					<form class="modal-form">
+						<div class="modal-form__grd-inputs">
+							<label class="main-form-label">
+								<input class="main-form-input" type="text" placeholder="Ваше имя" autocomplete="off">
+							</label>
+							<label class="main-form-label">
+								<input class="main-form-input js-phone-mask" type="text" placeholder="+7 (___) ___-__-__" pattern="\d*" autocomplete="off">
+							</label>
+						</div>
+						<div class="modal-form__bottom">
+							<label class="main-form-checkbox">
+								<input class="main-form-checkbox__input" type="checkbox">
+								<span class="main-form-checkbox__checkmark"></span>
+								<span class="main-form-checkbox__text">Согласие на обработку персональных данных</span>
+							</label>
+							<button class="btn btn_primary_bg btn_arrow">
+								<span>Получить скидку</span>
+							</button>
+							<img class="modal-form__logo" alt="СВТ - СОВРЕМЕННЫЕ ВЕРТИКАЛЬНЫЕ ТЕХНОЛОГИИ" src="img/logo-dark.svg">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<!-- helper text for tablets -->
+		<div class="mobile-device-helper">
+			<div class="mobile-device-helper-inner">
+				Пожалуйста, переверните устройство. <br>Это необходимо для корректного отображения сайта.
+			</div>
+		</div>
+
+		<!-- preloader -->
+		<div class="preloader"></div>
+
+		<!-- vendor plugins -->
+		<script src="js/vendor/lazyload.min.js"></script>
+		<script src="js/vendor/jquery.min.js"></script>
+		<script src="js/vendor/swiper-bundle.min.js"></script>
+		<script src="js/vendor/select2.min.js"></script>
+		<script src="js/vendor/jquery.inputmask.min.js"></script>
+		<script src="js/vendor/jquery.fancybox.min.js"></script>
+
+		<!-- main scripts -->
+		<script src="js/common.js"></script>
+		<script src="js/_dev.js"></script>
+	</body>
+</html>

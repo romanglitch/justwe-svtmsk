@@ -2867,3 +2867,64 @@ a {
     bottom: -0.52vw;
     transform: rotate(180deg);
 }
+
+.section-page-header + .section-page-catalog {
+    padding-top: 0;
+}
+
+.page-delivery__row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.page-delivery__image {
+    background-position: center;
+    background-size: cover;
+    min-height: 32.69vw;
+}
+
+.page-delivery__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1.56vw;
+    padding: var(--padding-md) var(--padding-sm) var(--padding-md) var(--padding-def);
+}
+
+.page-delivery__title {
+    font-family: var(--secondaryFont);
+    font-weight: 300;
+    font-size: 4.375rem;
+    line-height: 4.375rem;
+}
+
+.page-delivery__futures {
+    display: grid;
+    grid-gap: var(--padding-xs);
+}
+
+.page-delivery__future-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.04vw;
+}
+
+.page-delivery__future-item__text {
+    font-size: 0.875rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--primary);
+}
+
+.page-delivery__future-item__icon {
+    display: block;
+    width: 4.48vw;
+    height: 4.48vw;
+}
+
+.page-delivery__description {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}

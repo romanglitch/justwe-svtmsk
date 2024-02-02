@@ -36,8 +36,14 @@
         font-size: 3vh;
         z-index: 99999;
         text-align: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
         align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
         justify-content: center;
     }
 
@@ -50,8 +56,10 @@
     * {
         background: none !important;
         color: #000 !important;
+        -webkit-box-shadow: none !important;
         box-shadow: none !important;
         text-shadow: none !important;
+        -webkit-filter: grayscale(1) !important;
         filter: grayscale(1) !important;
     }
     a {

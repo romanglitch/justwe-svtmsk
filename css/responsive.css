@@ -1,5 +1,5 @@
 /* Main responsive styles */
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 768px) {
     :root {
         --container-width: 576px;
     }
@@ -8,19 +8,6 @@
     textarea,
     input {
         font-size: var(--main-font-size);
-    }
-
-    /* Hide document for dev */
-    html {
-        opacity: 0;
-        overflow: hidden;
-        display: none;
-        visibility: hidden;
-        pointer-events: none;
-    }
-
-    body {
-        min-width: 992px;
     }
 }
 

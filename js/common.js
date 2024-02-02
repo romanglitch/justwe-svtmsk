@@ -150,8 +150,6 @@ $(function() {
             const $elevatorElement = $('.elevator')
 
             if ($elevatorElement.length) {
-                GL_APP.elements.$html.addClass('--elevator-init')
-
                 let stickyTop = $elevatorElement.offset().top
                 let stickyCalc = stickyTop + Number($elevatorElement.css('--animation-start-px'))
 
@@ -172,6 +170,8 @@ $(function() {
                         $elevatorElement.removeClass('--animation')
                     }
                 })
+
+                GL_APP.elements.$html.addClass('--elevator-init')
             }
         },
         glInputCounter: () => {

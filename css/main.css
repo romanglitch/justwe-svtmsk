@@ -50,6 +50,10 @@ html:not(.--loaded) .section-hero__assets {
     justify-content: center;
 }
 
+html.--elevator-init body.compensate-for-scrollbar {
+    overflow: visible;
+}
+
 a {
     color: inherit;
 }

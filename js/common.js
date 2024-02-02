@@ -150,6 +150,8 @@ $(function() {
             const $elevatorElement = $('.elevator')
 
             if ($elevatorElement.length) {
+                GL_APP.elements.$html.addClass('--elevator-init')
+
                 let stickyTop = $elevatorElement.offset().top
                 let stickyCalc = stickyTop + Number($elevatorElement.css('--animation-start-px'))
 
@@ -267,6 +269,9 @@ $(function() {
                     clickable: true,
                 },
                 on: {
+                    init: function () {
+                      GL_APP.elements.$html.addClass('--hero-carousel-init')
+                    },
                     progress: function (swiper, progress) {
                         GL_APP.elements.$html.css({
                             '--hero-carousel-progress': Math.round(progress * 100),

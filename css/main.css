@@ -2938,3 +2938,51 @@ a {
     font-size: 0.875rem;
     line-height: 1.25rem;
 }
+
+.ya-map {
+    width: 100%;
+    height: 100%;
+}
+
+.ya-marker {
+    transform: translate(-50%, -125%);
+    position: relative;
+    z-index: 1;
+}
+
+.marker-company:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.60);
+}
+
+.marker-company {
+    padding: 25px 30px;
+    filter: drop-shadow(0 0 25px rgba(0,0,0,.15));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    backdrop-filter: blur(15px);
+}
+
+.marker-company:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -39px;
+    margin: auto;
+    width: 0;
+    height: 0;
+    border-width: 40px 15px 0 15px;
+    border-color: rgba(255, 255, 255, 0.60) transparent transparent transparent;
+    border-style: solid;
+}

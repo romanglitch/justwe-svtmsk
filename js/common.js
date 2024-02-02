@@ -319,6 +319,46 @@ $(function() {
         glInitFancyBox: () => {
             GL_APP.elements.$fancyboxModals.fancybox(GL_APP.variables.fancyBox.modalsOptions)
             GL_APP.elements.$fancyboxGallery.fancybox(GL_APP.variables.fancyBox.galleryOptions)
+        },
+        glInitYaMap: () => {
+            initMap();
+
+            const LOCATION = {
+                center: [37.482960, 55.791299], // starting position [lng, lat]
+                zoom: 17 // starting zoom
+            };
+
+            // Array containing data for markers
+            const markerProps = [
+                {
+                    coordinates: [37.482960, 55.791299],
+                    element: document.querySelector('.marker-company'),
+                },
+            ];
+
+            async function initMap() {
+                await ymaps3.ready;
+
+                const {YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker} = ymaps3;
+
+                let map = new YMap(
+                    document.querySelector('.ya-map'),
+                    {
+                        location: LOCATION,
+                        showScaleInCopyrights: true
+                    },
+                    [
+                        new YMapDefaultSchemeLayer({}),
+                        new YMapDefaultFeaturesLayer({})
+                    ]
+                );
+
+                markerProps.forEach((markerProp) => {
+                    const markerElement = markerProp.element;
+                    markerElement.onclick = markerProp.onClick ? markerProp.onClick : false;
+                    map.addChild(new YMapMarker({coordinates: markerProp.coordinates}, markerElement));
+                });
+            }
         }
     }
 
@@ -348,4 +388,7 @@ $(function() {
 
     /* Init component [Fancybox] */
     GL_APP.components.glInitFancyBox()
+
+    /* Init component [Init yandex maps] */
+    GL_APP.components.glInitYaMap()
 });

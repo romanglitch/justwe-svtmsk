@@ -314,13 +314,14 @@ a {
 }
 
 .elevator-scene {
-    height: 100vw;
+    height: 130vw;
 }
 
 .elevator {
     --animation-start-px: 230;
     position: relative;
-    height: 58.4vw;
+    /*height: 58.4vw;*/ /* - old size */
+    height: 66.4vw; /* - new size (for 4k) */
     background: darkolivegreen;
     z-index: 1;
     overflow: hidden;

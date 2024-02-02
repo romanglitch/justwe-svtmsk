@@ -74,14 +74,14 @@
 							<a href="#" class="app-aside__contacts-phone">
 								(495) <b>724 14 33</b>
 							</a>
-							<a href="#" class="app-aside__contacts-link js-modals" data-src="#modal-callback">
+							<button class="app-aside__contacts-link js-modals" data-src="#modal-callback">
 								Обратный звонок
-							</a>
+							</button>
 						</div>
 						<div class="app-aside__buttons">
-							<a href="#" class="btn btn_border_wh js-modals" data-src="#modal-offer">
-								Отправить заявку
-							</a>
+							<button class="btn btn_border_wh js-modals" data-src="#modal-offer">
+								<span>Отправить заявку</span>
+							</button>
 						</div>
 						<div class="app-aside__bottom">
 							<div class="app-aside__bottom-text">
@@ -105,7 +105,13 @@
 				<section class="app-section section-contacts-page --aside-offset">
 					<div class="contacts-page">
 						<div class="contacts-page__map">
-							<iframe class="contacts-page__map-iframe" src="https://yandex.ru/map-widget/v1/?ll=38.208143%2C56.638052&z=10"></iframe>
+							<!-- <iframe class="contacts-page__map-iframe" src="https://yandex.ru/map-widget/v1/?ll=38.208143%2C56.638052&z=10"></iframe> -->
+							<div class="ya-map"></div>
+							<div class="ya-map-markers">
+								<a href="https://yandex.ru/maps/-/CDBU5P5e" class="ya-marker marker-company" target="_blank">
+									<img class="marker-company__logo" src="img/logo-full.svg" alt="SVT">
+								</a>
+							</div>
 						</div>
 						<div class="contacts-page__content">
 							<div class="contacts-page__title">
@@ -451,6 +457,9 @@
 		<script src="js/vendor/select2.min.js"></script>
 		<script src="js/vendor/jquery.inputmask.min.js"></script>
 		<script src="js/vendor/jquery.fancybox.min.js"></script>
+
+		<!-- init map -->
+		<script src="https://api-maps.yandex.ru/v3/?apikey=d696e650-4ec3-4613-9f12-ca38c38b820a&lang=ru_RU"></script>
 
 		<!-- main scripts -->
 		<script src="js/common.js"></script>

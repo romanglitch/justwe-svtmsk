@@ -1,13 +1,343 @@
 /* Main responsive styles */
 @media only screen and (max-width: 768px) {
     :root {
-        --container-width: 576px;
+        --html-font-size: 3.76vw;
+        --ui-height: 9.41vw;
+        --padding-def: 2.35vw;
+        --padding-sm: 11.76vw;
+        --padding-xs: 3.53vw;
     }
 
     select,
     textarea,
     input {
         font-size: var(--main-font-size);
+    }
+
+    html:not(.--loaded) body {
+        padding-right: unset;
+    }
+
+    html:not(.--loaded) .section-hero__assets {
+        width: 100%;
+    }
+
+    .hero-carousel {
+        height: 100vh;
+        transition: all 100ms ease-in-out;
+    }
+
+    .app-aside {
+        display: none;
+    }
+
+    .app-mobile-header {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 100;
+        width: 100%;
+        padding: 2.35vw;
+        height: 13.41vw;
+    }
+
+    .app-mobile-header:before {
+        content: "";
+        background: var(--dark);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
+
+    @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+        .app-mobile-header:before {
+            background: rgba(59, 80, 91, 0.60);
+            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(15px);
+        }
+    }
+
+    .app-mobile-header__logo-img {
+        width: 20vw;
+    }
+
+    .app-mobile-header__menu-btn {
+        width: 7.76vw;
+        height: 7.76vw;
+        border: none;
+        cursor: pointer;
+        user-select: none;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256"><g fill="%23ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M5,8c-0.72127,-0.0102 -1.39216,0.36875 -1.75578,0.99175c-0.36361,0.623 -0.36361,1.39351 0,2.01651c0.36361,0.623 1.0345,1.00195 1.75578,0.99175h40c0.72127,0.0102 1.39216,-0.36875 1.75578,-0.99175c0.36361,-0.623 0.36361,-1.39351 0,-2.01651c-0.36361,-0.623 -1.0345,-1.00195 -1.75578,-0.99175zM5,23c-0.72127,-0.0102 -1.39216,0.36875 -1.75578,0.99175c-0.36361,0.623 -0.36361,1.39351 0,2.01651c0.36361,0.623 1.0345,1.00195 1.75578,0.99175h40c0.72127,0.0102 1.39216,-0.36875 1.75578,-0.99175c0.36361,-0.623 0.36361,-1.39351 0,-2.01651c-0.36361,-0.623 -1.0345,-1.00195 -1.75578,-0.99175zM5,38c-0.72127,-0.0102 -1.39216,0.36875 -1.75578,0.99175c-0.36361,0.623 -0.36361,1.39351 0,2.01651c0.36361,0.623 1.0345,1.00195 1.75578,0.99175h40c0.72127,0.0102 1.39216,-0.36875 1.75578,-0.99175c0.36361,-0.623 0.36361,-1.39351 0,-2.01651c-0.36361,-0.623 -1.0345,-1.00195 -1.75578,-0.99175z"></path></g></g></svg>') center/contain no-repeat;
+        transition: all 300ms ease-in-out;
+    }
+
+    html.--aside-opened .app-mobile-header__menu-btn {
+        transform: scale(.90);
+        opacity: .75;
+    }
+
+    .btn.btn_arrow:after {
+        width: 10.82vw;
+        height: 1.88vw;
+    }
+
+    .fancybox-container.--aside-styles .fancybox-content {
+        background: none;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .fancybox-container.--aside-styles .fancybox-slide--html {
+        padding: 0;
+    }
+
+    html.--aside-opened {
+        overflow: hidden;
+    }
+
+    .fancybox-container.--aside-styles .fancybox-slide--html .fancybox-close-small {
+        z-index: 10000;
+        color: #fff;
+        padding: 0;
+        top: 10px;
+        right: 10px;
+    }
+
+    .app-aside {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .app-aside[data-aside-transparent] .app-aside__bg:before {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+
+    .app-aside[data-aside-transparent] .app-aside__bg {
+        height: 100%;
+    }
+
+    .app-aside__inner {
+        height: 100%;
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 5.2vw;
+        padding: 5.2vw;
+    }
+
+    .app-aside__logo {
+        display: none;
+    }
+
+    .app-aside__nav {
+        grid-gap: 4.2vw;
+    }
+
+    body {
+        padding-top: 13.41vw;
+    }
+
+    html.--hero-carousel-init body {
+        padding-top: 0;
+    }
+
+    .app-aside__nav-item {
+        font-size: 1rem;
+        line-height: normal;
+    }
+
+    .app-aside__bottom-text {
+        font-size: 0.825rem;
+        line-height: normal;
+    }
+
+    .app-aside__bottom-link {
+        font-size: 0.825rem;
+        line-height: normal;
+    }
+
+    .app-aside__bottom {
+        grid-gap: 2.39vw;
+    }
+
+    .hero-carousel__block-title {
+        font-size: 4.25rem;
+        line-height: normal;
+    }
+
+    .hero-carousel__slide {
+        padding-left: 2.35vw;
+        gap: 11.86vw;
+    }
+
+    .swiper-pagination.hero-carousel__pagination {
+        right: 2.35vw;
+    }
+
+    .hero-carousel__block {
+        max-width: calc(100% - 2.35vw);
+    }
+
+    .--aside-offset {
+        width: unset;
+        margin-left: unset;
+    }
+
+    .catalog {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .catalog-block-link {
+        height: auto;
+        padding: 10.35vw var(--padding-def);
+    }
+
+    .catalog-block-link__icon {
+        max-width: 13.39vw;
+        margin-bottom: 3.82vw;
+    }
+
+    .catalog-block-link__title {
+        margin-bottom: 4.86vw;
+    }
+
+    .portfolio__title {
+        font-size: 3.075rem;
+        line-height: normal;
+    }
+
+    .portfolio__content .btn {
+        max-width: 65.28vw;
+    }
+
+    .portfolio__row {
+        grid-template-columns: 1fr;
+    }
+
+    .portfolio__content {
+        padding: 9vw var(--padding-def);
+    }
+
+    .portfolio.portfolio_v2 .portfolio__gallery-grid .portfolio__gallery-item:nth-child(2), .portfolio__gallery-grid .portfolio__gallery-item:nth-child(3) {
+        height: 100%;
+    }
+
+    .--aside-pd-left-offset {
+        padding-left: unset;
+    }
+
+    .discount {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+        padding: 6.08vw var(--padding-def);
+    }
+
+    .discount__title {
+        font-size: 3.375rem;
+    }
+
+    .discount__desc {
+        font-size: 1.275rem;
+    }
+
+    .discount__arrow {
+        display: none;
+    }
+
+    .elevator-scene {
+        height: calc(100vh * 2);
+    }
+
+    .elevator {
+        height: 106vh;
+    }
+
+    .elevator__border {
+        background-position: center top;
+    }
+
+    .elevator__bg {
+        padding: 30.95vw 2.35vw 0;
+        background-size: cover;
+    }
+
+    .elevator__doors {
+        padding: 32vw 0 0;
+    }
+
+    .elevator__title {
+        font-size: 2.375rem;
+        line-height: normal;
+    }
+
+    .elevator__doors-item .elevator__image {
+        width: 37.33vw;
+    }
+
+    .elevator__content-col .elevator__image {
+        width: 29.67vw;
+    }
+
+    .spv__head {
+        padding: var(--padding-def);
+    }
+
+    .spv-carousel.spv-carousel_type_crt .spv-carousel_slide {
+        width: 39.11vw;
+    }
+
+    .app-section-title {
+        font-size: 1.575rem;
+    }
+
+    .spv {
+        padding: 5vw 0;
+    }
+
+    .modal__title.--phones-icon:after,
+    .modal__title.--cur-icon:after {
+        width: 4.46vw;
+        height: 4.46vw;
+        bottom: -5.56vw;
+    }
+
+    .modal__title.--phones-icon,
+    .modal__title.--cur-icon {
+        margin-bottom: 8.6vw;
+    }
+
+    .modal__description {
+        max-width: 100%;
+        margin: 0 auto 4.56vw;
+    }
+
+    .modal-form__grd-inputs {
+        grid-template-columns: 1fr;
+    }
+
+    .main-form-input {
+        font-size: 16px;
+        padding: 0 4.71vw;
+    }
+
+    .modal-form {
+        grid-gap: var(--padding-xs);
+    }
+
+    .main-form-textarea {
+        padding: 2.71vw 4.71vw;
     }
 }
 

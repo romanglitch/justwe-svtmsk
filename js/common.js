@@ -16,7 +16,20 @@ $(function() {
                 transitionDuration: 366,
                 animationEffect: 'zoom-in-out',
                 touch: false,
-                autoFocus: false
+                autoFocus: false,
+                closeExisting: true,
+                beforeLoad: (data) => {
+                    if (data.slides[0].src === '#app-aside') {
+                        GL_APP.elements.$html.addClass('--aside-opened')
+                        data.$refs.container.addClass('--aside-styles')
+                    }
+                },
+                afterClose: (data) => {
+                    if (data.slides[0].src === '#app-aside') {
+                        GL_APP.elements.$html.removeClass('--aside-opened')
+                        data.$refs.container.removeClass('--aside-styles')
+                    }
+                }
             },
             galleryOptions : {
                 transitionDuration: 366,

@@ -2083,6 +2083,7 @@ a {
     -webkit-box-shadow: 0 7px 10px rgb(0 0 0 / 10%);
     box-shadow: 0 7px 10px rgb(0 0 0 / 10%);
     overflow: hidden;
+    z-index: 99999;
 }
 
 .filter-form__radios {
@@ -2893,13 +2894,13 @@ a {
 
 .page-catalog__body {
     overflow: hidden;
-    margin-bottom: -165px;
+    margin-bottom: -8.59vw;
     position: relative;
 }
 
 .catalog-carousel {
     overflow: visible;
-    padding-bottom: 165px;
+    padding-bottom: 8.59vw;
 }
 
 .bottom-button {
@@ -3552,4 +3553,12 @@ a {
     border-width: 40px 15px 0 15px;
     border-color: rgba(255, 255, 255, 0.60) transparent transparent transparent;
     border-style: solid;
+}
+
+.btn-mobile-filter {
+    display: none;
+}
+
+.filter-form__heading {
+    display: none;
 }

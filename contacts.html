@@ -26,7 +26,7 @@
 				<a href="/" class="app-mobile-header__logo">
 					<img class="app-mobile-header__logo-img" alt="СВТ - СОВРЕМЕННЫЕ ВЕРТИКАЛЬНЫЕ ТЕХНОЛОГИИ" src="img/logo.svg">
 				</a>
-				<button class="app-mobile-header__menu-btn js-modals" data-fancybox="#app-aside"></button>
+				<button class="app-mobile-header__menu-btn js-modals" data-src="#app-aside"></button>
 			</header>
 			<aside class="app-aside" id="app-aside">
 				<div class="app-aside__bg">
@@ -460,6 +460,46 @@
 
 		<!-- init map -->
 		<script src="https://api-maps.yandex.ru/v3/?apikey=d696e650-4ec3-4613-9f12-ca38c38b820a&lang=ru_RU"></script>
+		<script>
+			initMap();
+
+			const LOCATION = {
+				center: [37.482960, 55.791299], // starting position [lng, lat]
+				zoom: 17 // starting zoom
+			};
+
+			// Array containing data for markers
+			const markerProps = [
+				{
+					coordinates: [37.482960, 55.791299],
+					element: document.querySelector('.marker-company'),
+				},
+			];
+
+			async function initMap() {
+				await ymaps3.ready;
+
+				const {YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker} = ymaps3;
+
+				let map = new YMap(
+						document.querySelector('.ya-map'),
+						{
+							location: LOCATION,
+							showScaleInCopyrights: true
+						},
+						[
+							new YMapDefaultSchemeLayer({}),
+							new YMapDefaultFeaturesLayer({})
+						]
+				);
+
+				markerProps.forEach((markerProp) => {
+					const markerElement = markerProp.element;
+					markerElement.onclick = markerProp.onClick ? markerProp.onClick : false;
+					map.addChild(new YMapMarker({coordinates: markerProp.coordinates}, markerElement));
+				});
+			}
+		</script>
 
 		<!-- main scripts -->
 		<script src="js/common.js"></script>

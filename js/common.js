@@ -16,7 +16,20 @@ $(function() {
                 transitionDuration: 366,
                 animationEffect: 'zoom-in-out',
                 touch: false,
-                autoFocus: false
+                autoFocus: false,
+                closeExisting: true,
+                beforeLoad: (data) => {
+                    if (data.slides[0].src === '#app-aside') {
+                        GL_APP.elements.$html.addClass('--aside-opened')
+                        data.$refs.container.addClass('--aside-styles')
+                    }
+                },
+                afterClose: (data) => {
+                    if (data.slides[0].src === '#app-aside') {
+                        GL_APP.elements.$html.removeClass('--aside-opened')
+                        data.$refs.container.removeClass('--aside-styles')
+                    }
+                }
             },
             galleryOptions : {
                 transitionDuration: 366,
@@ -150,8 +163,6 @@ $(function() {
             const $elevatorElement = $('.elevator')
 
             if ($elevatorElement.length) {
-                GL_APP.elements.$html.addClass('--elevator-init')
-
                 let stickyTop = $elevatorElement.offset().top
                 let stickyCalc = stickyTop + Number($elevatorElement.css('--animation-start-px'))
 
@@ -172,6 +183,8 @@ $(function() {
                         $elevatorElement.removeClass('--animation')
                     }
                 })
+
+                GL_APP.elements.$html.addClass('--elevator-init')
             }
         },
         glInputCounter: () => {
@@ -319,46 +332,6 @@ $(function() {
         glInitFancyBox: () => {
             GL_APP.elements.$fancyboxModals.fancybox(GL_APP.variables.fancyBox.modalsOptions)
             GL_APP.elements.$fancyboxGallery.fancybox(GL_APP.variables.fancyBox.galleryOptions)
-        },
-        glInitYaMap: () => {
-            initMap();
-
-            const LOCATION = {
-                center: [37.482960, 55.791299], // starting position [lng, lat]
-                zoom: 17 // starting zoom
-            };
-
-            // Array containing data for markers
-            const markerProps = [
-                {
-                    coordinates: [37.482960, 55.791299],
-                    element: document.querySelector('.marker-company'),
-                },
-            ];
-
-            async function initMap() {
-                await ymaps3.ready;
-
-                const {YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer, YMapMarker} = ymaps3;
-
-                let map = new YMap(
-                    document.querySelector('.ya-map'),
-                    {
-                        location: LOCATION,
-                        showScaleInCopyrights: true
-                    },
-                    [
-                        new YMapDefaultSchemeLayer({}),
-                        new YMapDefaultFeaturesLayer({})
-                    ]
-                );
-
-                markerProps.forEach((markerProp) => {
-                    const markerElement = markerProp.element;
-                    markerElement.onclick = markerProp.onClick ? markerProp.onClick : false;
-                    map.addChild(new YMapMarker({coordinates: markerProp.coordinates}, markerElement));
-                });
-            }
         }
     }
 
@@ -388,7 +361,4 @@ $(function() {
 
     /* Init component [Fancybox] */
     GL_APP.components.glInitFancyBox()
-
-    /* Init component [Init yandex maps] */
-    GL_APP.components.glInitYaMap()
 });

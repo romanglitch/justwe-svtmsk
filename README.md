@@ -1,4 +1,4 @@
-# justwe-omoda (from justwe archive)
+# justwe-svtmsk (from justwe archive)
 
 ## Todo:
 - Code review
